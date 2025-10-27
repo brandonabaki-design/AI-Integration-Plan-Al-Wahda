@@ -1,0 +1,1730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic AI Integration Plan: Al Wahda Private School</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7fafc; /* Tailwind gray-100 */
+            padding-bottom: 0; 
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Merriweather', serif;
+        }
+        .awps-header-bg {
+            background-color: #CDBA96; /* Deep sandy color */
+        }
+        .awps-accent-bg {
+            background-color: #0077b6; 
+        }
+        .awps-accent-text {
+            color: #0077b6;
+        }
+        .card {
+            background-color: white;
+            border-radius: 0.75rem; 
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); 
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex; 
+            flex-direction: column; 
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); 
+        }
+        .card-content { 
+            flex-grow: 1;
+        }
+        .icon-placeholder {
+            font-size: 2.5rem; 
+            margin-bottom: 1rem; 
+            color: #0077b6; 
+        }
+        .button-style { 
+            min-height: 44px;
+            padding-left: 1.5rem; padding-right: 1.5rem; 
+            border-radius: 0.375rem; 
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        /* Tab Styles */
+        .tab-button {
+            padding: 0.75rem 0.8rem; /* Adjusted padding for more tabs */
+            font-weight: 600; 
+            color: #4a5568; 
+            background-color: #e2e8f0; 
+            border-radius: 0.5rem 0.5rem 0 0; 
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border: 1px solid #cbd5e0; 
+            border-bottom: none;
+            margin-right: 0.1rem; /* Further reduced margin */
+            white-space: nowrap; 
+            font-size: 0.7rem; /* Even smaller font for more tabs */
+        }
+        .tab-button i { /* Adjust icon margin if needed */
+            margin-right: 0.25rem;
+        }
+        .tab-button.active {
+            background-color: #0077b6; 
+            color: white;
+            border-color: #0077b6;
+        }
+        .tab-button:hover:not(.active) {
+            background-color: #cbd5e0; 
+        }
+        .tab-content {
+            display: none;
+            background-color: white;
+            padding: 1.5rem; 
+            border-radius: 0 0 0.75rem 0.75rem; 
+            border: 1px solid #cbd5e0; 
+            border-top: none;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); 
+        }
+        .tab-content.active {
+            display: block;
+        }
+
+        .phase-title, .section-title { /* Combined for consistency */
+            color: #00447c; 
+            border-bottom: 2px solid #0077b6; 
+            padding-bottom: 0.5rem; 
+            margin-bottom: 1rem; 
+        }
+        .citation {
+            font-size: 0.8rem;
+            color: #718096; 
+            display: block;
+            margin-top: 0.25rem;
+        }
+        .sub-section-title { /* For h4 within tabs */
+            color: #005a9c; 
+            font-size: 1.25rem; 
+            margin-top: 1.5rem; 
+            margin-bottom: 0.75rem; 
+        }
+         .survey-question {
+            background-color: #f8fafc; 
+            padding: 0.75rem; 
+            border-radius: 0.375rem; 
+            margin-bottom: 1rem; 
+            border-left: 4px solid #60a5fa; 
+        }
+        .survey-question p {
+            margin-bottom: 0.5rem; 
+        }
+        .survey-question ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .survey-question ul li {
+            margin-bottom: 0.25rem; 
+        }
+        .tab-navigation-container {
+            overflow-x: auto; 
+            white-space: nowrap; 
+            -webkit-overflow-scrolling: touch; 
+        }
+        .executive-summary {
+            background-color: #e0f2fe; 
+            border-left: 5px solid #0ea5e9; 
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 0.5rem;
+        }
+        /* Modal Styles */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.4); 
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto; 
+            padding: 2rem;
+            border: 1px solid #888;
+            width: 90%; 
+            max-width: 500px; 
+            border-radius: 0.75rem; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .modal-header {
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e5e7eb; 
+            margin-bottom: 1rem;
+        }
+        .modal-header h2 {
+            margin: 0;
+            font-size: 1.5rem; 
+            color: #00447c;
+        }
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            line-height: 1;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .form-input, .form-select {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid #cbd5e0; 
+            border-radius: 0.375rem; 
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #4a5568; 
+        }
+        .custom-links-container {
+            margin-top: 2rem; 
+            padding-top: 1rem; 
+            border-top: 1px solid #e2e8f0; 
+        }
+        .custom-links-container h4 {
+            font-size: 1.125rem; 
+            font-weight: 600; 
+            color: #374151; 
+            margin-bottom: 0.5rem; 
+        }
+        .custom-links-container ul {
+            list-style: disc;
+            padding-left: 1.5rem; 
+        }
+        .custom-links-container ul li a {
+            color: #0077b6; 
+            text-decoration: underline;
+        }
+        .custom-links-container ul li a:hover {
+            color: #005a8c; 
+        }
+        .add-link-button-container {
+            display: flex;
+            justify-content: flex-end; 
+            padding: 1rem 0; 
+            margin-bottom: 1rem; 
+        }
+        .pbl-card {
+            background-color: #eff6ff; 
+            border: 1px solid #bfdbfe; 
+            padding: 1rem;
+            border-radius: 0.5rem; 
+            margin-bottom: 1rem;
+        }
+        .pbl-card h5 {
+            color: #1d4ed8; 
+            font-weight: 700;
+        }
+        .ethical-pillar {
+            background-color: #f0f9ff; 
+            border-left: 4px solid #3b82f6; 
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 0.25rem; 
+        }
+        .ethical-pillar strong {
+            color: #1e40af; 
+        }
+        .policy-point {
+            margin-bottom: 0.75rem; /* mb-3 */
+            padding-left: 1rem; /* pl-4 */
+            position: relative;
+        }
+        .policy-point::before {
+            content: "\f058"; /* Font Awesome check-circle */
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            left: -0.5rem;
+            top: 0.125rem; /* Adjust vertical alignment */
+            color: #22c55e; /* green-500 */
+        }
+        .risk-table th, .risk-table td {
+            border: 1px solid #e2e8f0; /* gray-300 */
+            padding: 0.75rem; /* p-3 */
+            text-align: left;
+        }
+        .risk-table th {
+            background-color: #f1f5f9; /* slate-100 */
+        }
+        .ip-notice {
+            text-align: center;
+            padding: 0.5rem;
+            background-color: #eef2ff; /* indigo-50 */
+            color: #3730a3; /* indigo-800 */
+            font-size: 0.875rem; /* text-sm */
+            font-weight: 500;
+            border-bottom: 1px solid #c7d2fe; /* indigo-200 */
+            position: sticky;
+            top: 0;
+            z-index: 999; /* Ensures the banner stays on top of other content */
+        }
+    </style>
+</head>
+<body class="leading-normal tracking-normal">
+
+    <header class="awps-header-bg text-white p-6 sm:p-12">
+        <div class="container mx-auto text-center">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyN3mWov9dfmibFROZWaV8thDqrITIPkcJWw&s" alt="Al Wahda Private School Logo Placeholder" class="mx-auto mb-4 h-12 sm:h-16" onerror="this.src='https://placehold.co/150x50/ffffff/00447c?text=AWPS'; this.alt='AWPS Logo Placeholder';">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-blue-900">A Strategic Plan for Integrating Artificial Intelligence at Al Wahda Private School</h1>
+            <p class="text-lg sm:text-xl md:text-2xl mb-2 text-red-900">Empowering Our Students, Staff, and Community for an AI-Driven Future</p>
+            <p class="text-md sm:text-lg text-green-900">Aligning with AWPS's mission to "foster academic excellence and prepare students to be lifelong learners and responsible global citizens."</p>
+        </div>
+    </header>
+    
+    <div class="ip-notice">
+        This document is the intellectual property of Brandon Abdul Baki - Al Wahda Private School.
+    </div>
+
+    <main class="container mx-auto p-4 sm:p-8">
+        <div class="add-link-button-container">
+            <button id="addLinkBtn" class="bg-yellow-500 hover:bg-yellow-600 text-gray-800 font-bold py-2 px-4 rounded-lg shadow-md button-style">
+                <i class="fas fa-plus-circle mr-2"></i>Add Resource Link
+            </button>
+        </div>
+
+        <div class="mb-8">
+            <div class="tab-navigation-container border-b border-gray-300">
+                <button class="tab-button active" onclick="openTab(event, 'proposalTab')"><i class="fas fa-file-alt mr-1"></i>AI Integration Proposal</button>
+                <button class="tab-button" onclick="openTab(event, 'planTab')"><i class="fas fa-tasks mr-1"></i>First-Year Plan</button>
+                <button class="tab-button" onclick="openTab(event, 'pdPlanTab')"><i class="fas fa-users-cog mr-1"></i>Teacher PD</button>
+                <button class="tab-button" onclick="openTab(event, 'surveyTab')"><i class="fas fa-poll mr-1"></i>Surveys</button>
+                <button class="tab-button" onclick="openTab(event, 'governanceTab')"><i class="fas fa-balance-scale mr-1"></i>AI Governance</button>
+                <button class="tab-button" onclick="openTab(event, 'ethicalFrameworkTab')"><i class="fas fa-shield-heart mr-1"></i>Ethical AI Framework & Policy</button>
+                <button class="tab-button" onclick="openTab(event, 'communicationTab')"><i class="fas fa-bullhorn mr-1"></i>Communication</button>
+                <button class="tab-button" onclick="openTab(event, 'pblTab')"><i class="fas fa-project-diagram mr-1"></i>G3 PBL Example</button>
+                <button class="tab-button" onclick="openTab(event, 'impactTab')"><i class="fas fa-chart-pie mr-1"></i>Measuring Impact</button>
+                <button class="tab-button" onclick="openTab(event, 'budgetTab')"><i class="fas fa-coins mr-1"></i>Budget & Resources</button>
+            </div>
+        </div>
+
+        <div id="proposalTab" class="tab-content active">
+            <section class="my-8 sm:my-12 executive-summary">
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4">Executive Summary</h2>
+                <div class="text-gray-700 text-base sm:text-lg space-y-3">
+                    <p>This proposal outlines a <strong class="awps-accent-text">strategic plan for the integration of Artificial Intelligence (AI)</strong> at Al Wahda Private School (AWPS). The responsible and effective incorporation of AI in education is a present-day imperative, driven by global technological advancements, the evolving job market, national directives from the UAE Ministry of Education, and the widespread adoption of AI in higher education. This plan is designed to benefit our students, staff, and the wider AWPS community.</p>
+                    <p>Successful implementation of this comprehensive AI integration strategy will require <strong class="awps-accent-text">dedicated leadership and coordination</strong> to strategically and ethically embed AI across AWPS. This will empower our educators with innovative tools, personalize learning experiences for our students, and ensure they develop essential AI literacy and future-ready skills. Key benefits include enhanced teaching efficiency, improved student engagement and outcomes, and robust preparation of students for an AI-driven world, all while upholding AWPS's core values and mission to "foster academic excellence and prepare students to be lifelong learners and responsible global citizens."</p>
+                    <p>The proposed first-year action plan, teacher professional development strategy, ethical governance framework, and stakeholder communication plan detailed herein provide a comprehensive roadmap. Investing in the thoughtful execution of this AI integration plan is a strategic investment in the future of AWPS, positioning our schools at the forefront of educational innovation. This will ensure our students are exceptionally prepared for the challenges and opportunities ahead, and our staff are well-supported in this transformative journey. The necessary leadership and coordination functions to drive this plan could be fulfilled through various models, including assigning these responsibilities to existing leadership or establishing a dedicated AI integration lead, depending on the strategic decision of AWPS leadership.</p>
+                </div>
+            </section>
+            <section class="my-8 sm:my-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-6 text-gray-800">The AI Opportunity for Al Wahda Private School</h2>
+                <div class="bg-white p-6 rounded-lg shadow-md text-gray-700 text-base sm:text-lg space-y-4">
+                    <p>Artificial Intelligence is rapidly reshaping the educational landscape, offering unprecedented opportunities to enhance teaching methodologies, personalize learning experiences, and equip students with future-ready skills. For Al Wahda Private School, dedicated to "educational innovation while respecting cultural values," strategically integrating AI is not just an option, but a pathway to further elevate its esteemed educational programs for the entire school community.</p>
+                    <p>This proposal outlines a comprehensive plan for leveraging AI's transformative potential across various facets of our school community. It underscores the critical need for a <strong class="awps-accent-text">structured approach and dedicated oversight</strong> for AI integration. Successfully implementing this plan will be pivotal in navigating the evolving AI landscape, ensuring ethical and effective implementation, and maximizing AI's benefits to empower our students as "inquirers, critical thinkers, and principled leaders," and support our staff in this innovative endeavor.</p>
+                </div>
+            </section>
+
+            <section class="my-8 sm:my-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 text-gray-800">Why AI Now? The Imperative for AWPS</h2>
+                <div class="bg-white p-6 rounded-lg shadow-md text-gray-700 text-base sm:text-lg space-y-6">
+                    <p>The urgency to integrate Artificial Intelligence into our educational framework is underscored by global trends, national directives, and the evolving demands of the future. Proactive adoption, guided by a clear plan, is no longer a luxury but a necessity for preparing our students to thrive and supporting our educators effectively.</p>
+
+                    <div>
+                        <h4 class="sub-section-title font-semibold awps-accent-text mb-2"><i class="fas fa-globe-americas mr-2"></i>Global Transformation: The Future of Work & Skills</h4>
+                        <p>The World Economic Forum (WEF) highlights that AI is a major driver of labor market transformation. Their research indicates that AI and related technologies will significantly reshape industries and job roles. For instance, the WEF's "Future of Jobs Report" projects that while millions of jobs will be displaced by automation, even more new roles will emerge—many requiring AI literacy and advanced cognitive skills. Key projections suggest:</p>
+                        <ul class="list-disc list-inside pl-4 mt-2 space-y-1">
+                            <li>Approximately 86% of businesses anticipate that AI and information processing technologies will transform their operations by 2030. <span class="citation">(Source: WEF, Future of Jobs Report)</span></li>
+                            <li>It's estimated that AI could contribute to the creation of 170 million new jobs globally by 2030, while 92 million existing roles may be displaced. <span class="citation">(Source: WEF, Future of Jobs Report)</span></li>
+                            <li>A significant portion of existing skill sets (around 39%) are expected to become outdated in the next five years, emphasizing the critical need for continuous upskilling and reskilling. <span class="citation">(Source: WEF, Future of Jobs Report)</span></li>
+                        </ul>
+                        <p class="mt-3">For AWPS, this means equipping our students not just for today's jobs, but for the dynamic, AI-augmented careers of tomorrow. This requires fostering adaptability, critical thinking, and proficiency with AI tools.</p>
+                    </div>
+
+                    <div>
+                        <h4 class="sub-section-title font-semibold awps-accent-text mb-2"><i class="fas fa-university mr-2"></i>Higher Education Embraces AI</h4>
+                        <p>Universities and higher education institutions worldwide are rapidly integrating AI into their fabric. This adoption spans across:</p>
+                        <ul class="list-disc list-inside pl-4 mt-2 space-y-1">
+                            <li><strong>Curriculum Development:</strong> Offering courses, specializations, and degrees in AI, data science, and related fields.</li>
+                            <li><strong>Teaching & Learning:</strong> Utilizing AI-powered adaptive learning platforms, intelligent tutoring systems, and personalized feedback tools to enhance student engagement and outcomes.</li>
+                            <li><strong>Research:</strong> Leveraging AI for groundbreaking research across disciplines, from medicine to climate science.</li>
+                            <li><strong>Student Support & Administration:</strong> Employing AI for predictive analytics to identify at-risk students, streamline admissions, and provide 24/7 support through chatbots.</li>
+                        </ul>
+                        <p class="mt-3">Numerous reports indicate that a vast majority of higher education institutions view AI as crucial for their competitiveness and for preparing graduates for the modern workforce. <span class="citation">(Source: e.g., IDC, HEPI, UNIRANKS reports on AI in Higher Education – *AWPS to insert specific recent citation as desired*)</span>. AWPS graduates will increasingly enter university environments where AI proficiency is assumed and essential for success.</p>
+                    </div>
+
+                    <div>
+                        <h4 class="sub-section-title font-semibold awps-accent-text mb-2"><i class="fas fa-flag-checkered mr-2"></i>The UAE's National Vision: Leading in AI</h4>
+                        <p>The leadership of the United Arab Emirates has demonstrated a strong commitment to becoming a global leader in Artificial Intelligence. This vision is clearly articulated in national strategies and educational mandates:</p>
+                        <ul class="list-disc list-inside pl-4 mt-2 space-y-1">
+                            <li><strong>UAE National Strategy for Artificial Intelligence 2031:</strong> This strategy aims to position the UAE as a world leader in AI by 2031, emphasizing AI's role in economic growth, government efficiency, and societal well-being. A key objective is to attract and train talent for future jobs enabled by AI. <span class="citation">(Source: UAE Government Official Publications)</span></li>
+                            <li><strong>Ministry of Education (MoE) Mandate for K-12 AI Education:</strong> Crucially for AWPS, the UAE Ministry of Education has announced that Artificial Intelligence will become a <strong class="font-semibold">mandatory subject across all UAE public schools, from Kindergarten to Grade 12, starting in the 2025-2026 academic year.</strong> <span class="citation">(Source: UAE Ministry of Education Announcements, May 2025)</span></li>
+                            <li>This curriculum will focus on foundational AI concepts, data and algorithms, software use, ethical awareness, real-world applications, innovation, and project design.</li>
+                        </ul>
+                        <p class="mt-3">By proactively developing and implementing a robust AI integration plan, Al Wahda Private School has a strategic opportunity to not only align with this national directive but to <strong class="font-semibold">become a leading example of excellence in AI education within the private school sector.</strong> This allows us to get ahead of the curve, refine our approaches, and ensure our students are exceptionally well-prepared for this AI-centric future, both locally and globally.</p>
+                    </div>
+                    <p class="mt-4 font-semibold">Investing in a well-structured AI integration plan, supported by dedicated leadership and coordination, is therefore a timely and strategic step to navigate these transformations effectively, ensuring AWPS students are equipped with the skills, knowledge, and ethical understanding to lead and innovate in an AI-powered world.</p>
+                </div>
+            </section>
+
+            <section class="my-8 sm:my-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 text-gray-800">How AI Can Elevate the AWPS Experience</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8"> <div class="card p-6">
+                        <div class="card-content">
+                            <div class="flex justify-center"><i class="fas fa-user-graduate icon-placeholder"></i></div>
+                            <h3 class="text-2xl font-semibold mb-3 text-center awps-accent-text">Personalized Learning & Student Success</h3>
+                            <p class="text-gray-600 mb-4 text-sm sm:text-base">AI can tailor educational journeys to individual student needs, paces, and learning styles, fostering deeper understanding and engagement.</p>
+                            <h4 class="sub-section-title font-semibold mb-2 text-gray-700">Example Tools:</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm sm:text-base">
+                                <li><strong>Khanmigo / Socratic:</strong> AI-powered tutors offering step-by-step guidance and explanations.</li>
+                                <li><strong>eSpark / Algor Education:</strong> Platforms creating adaptive learning paths, interactive content, and personalized study materials.</li>
+                                <li><strong>Read Along by Google:</strong> AI-driven reading tutor to improve fluency and comprehension.</li>
+                            </ul>
+                            <p class="mt-4 text-sm sm:text-base text-gray-700"><strong class="font-semibold">AWPS Alignment:</strong> Directly supports "Academic Excellence" and prepares "Knowledgeable" and "Independent" learners by catering to diverse needs.</p>
+                        </div>
+                    </div>
+
+                    <div class="card p-6">
+                         <div class="card-content">
+                            <div class="flex justify-center"><i class="fas fa-chalkboard-teacher icon-placeholder"></i></div>
+                            <h3 class="text-2xl font-semibold mb-3 text-center awps-accent-text">Empowering AWPS Educators</h3>
+                            <p class="text-gray-600 mb-4 text-sm sm:text-base">AI tools can automate routine tasks, assist in content creation, and provide valuable insights, freeing up educators to focus on high-impact teaching and student interaction.</p>
+                            <h4 class="sub-section-title font-semibold mb-2 text-gray-700">Example Tools:</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm sm:text-base">
+                                <li><strong>MagicSchool.ai:</strong> An all-in-one platform for lesson planning, creating rubrics, drafting communications, and more.</li>
+                                <li><strong>Brisk Teaching / Diffit:</strong> Tools to differentiate instruction by adapting content to various reading levels and generating supplementary materials.</li>
+                                <li><strong>Canva AI:</strong> For creating engaging presentations, visual aids, and classroom materials efficiently.</li>
+                            </ul>
+                            <p class="mt-4 text-sm sm:text-base text-gray-700"><strong class="font-semibold">AWPS Alignment:</strong> Enhances "technology to improve learning," fosters "Innovation in Education," and allows teachers more time for character development and fostering "Caring" student-teacher relationships.</p>
+                        </div>
+                    </div>
+
+                    <div class="card p-6">
+                        <div class="card-content">
+                            <div class="flex justify-center"><i class="fas fa-clipboard-check icon-placeholder"></i></div>
+                            <h3 class="text-2xl font-semibold mb-3 text-center awps-accent-text">Enhancing Assessment & Feedback</h3>
+                            <p class="text-gray-600 mb-4 text-sm sm:text-base">AI can offer more dynamic, timely, and insightful assessment methods, providing students with actionable feedback to guide their learning.</p>
+                            <h4 class="sub-section-title font-semibold mb-2 text-gray-700">Example Tools:</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm sm:text-base">
+                                <li><strong>Gradescope:</strong> Streamlines grading for various assignment types, including AI-assisted grading and analytics.</li>
+                                <li><strong>Quizizz AI / Kahoot!:</strong> Generate interactive and gamified quizzes that provide immediate feedback and track understanding.</li>
+                                <li><strong>Google Classroom Practice Sets:</strong> Offers students real-time hints and support as they work through problems.</li>
+                            </ul>
+                            <p class="mt-4 text-sm sm:text-base text-gray-700"><strong class="font-semibold">AWPS Alignment:</strong> Promotes "Academic Excellence" and "Fairness," helping students become "Reflective" learners through constructive feedback.</p>
+                        </div>
+                    </div>
+
+                    <div class="card p-6">
+                        <div class="card-content">
+                            <div class="flex justify-center"><i class="fas fa-microchip icon-placeholder"></i></div>
+                            <h3 class="text-2xl font-semibold mb-3 text-center awps-accent-text">AI Literacy & Future Skills</h3>
+                            <p class="text-gray-600 mb-4 text-sm sm:text-base">Preparing students for an AI-driven world by teaching them about AI concepts, ethical considerations, and how to use AI tools responsibly.</p>
+                            <h4 class="sub-section-title font-semibold mb-2 text-gray-700">Example Approaches & Tools:</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm sm:text-base">
+                                <li><strong>Google's "Generative AI for Educators":</strong> Training for teachers to understand and utilize AI.</li>
+                                <li><strong>Curriculum Integration:</strong> Incorporating age-appropriate AI concepts and ethics discussions.</li>
+                                <li><strong>Project-Based Learning:</strong> Using tools like (age-appropriate) visual programming (e.g., Scratch AI extensions) or creative AI (e.g., Canva AI for design).</li>
+                            </ul>
+                            <p class="mt-4 text-sm sm:text-base text-gray-700"><strong class="font-semibold">AWPS Alignment:</strong> Crucial for "preparing students to be leaders," fostering "Innovation," and developing "Thinkers" and "Principled" global citizens.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="my-8 sm:my-16 bg-indigo-50 p-6 sm:p-10 rounded-lg shadow-lg">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 text-indigo-700">Key Elements for Successful AI Integration: Leadership & Coordination</h2>
+                <div class="max-w-3xl mx-auto text-gray-700 text-base sm:text-lg space-y-4">
+                    <p>To harness the full potential of AI responsibly and effectively across Al Wahda Private School, dedicated leadership and robust coordination are essential. The successful implementation of the proposed AI integration plan hinges on focused oversight and management of the following key functions. These functions will ensure AI's seamless integration with our educational ethos and operational framework:</p>
+                    <ul class="list-none space-y-3 pl-0">
+                        <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mr-3 mt-1 flex-shrink-0"></i><span><strong class="font-semibold">Strategic Vision & Planning:</strong> Developing, implementing, and continuously refining a comprehensive AI integration strategy aligned with AWPS's mission and values (like "Integrity," "Open-mindedness," "Respect"), and long-term goals.</span></li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mr-3 mt-1 flex-shrink-0"></i><span><strong class="font-semibold">Tool Evaluation & Curation:</strong> Identifying, evaluating, and recommending ethically sound and pedagogically effective AI tools suitable for our diverse student population and curriculum needs.</span></li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mr-3 mt-1 flex-shrink-0"></i><span><strong class="font-semibold">Professional Development:</strong> Designing and delivering ongoing training and support for educators and staff to build AI literacy and proficiency, ensuring they can leverage AI tools to enhance teaching and learning.</span></li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mr-3 mt-1 flex-shrink-0"></i><span><strong class="font-semibold">Ethical Guidelines & Policy Development:</strong> Establishing and maintaining clear policies for the responsible and ethical use of AI, addressing data privacy, bias mitigation, and digital citizenship, reflecting AWPS's commitment to "Principled" action.</span></li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mr-3 mt-1 flex-shrink-0"></i><span><strong class="font-semibold">Support & Collaboration:</strong> Acting as a central resource and support hub for teachers and students, fostering a collaborative environment for exploring and implementing AI solutions.</span></li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mr-3 mt-1 flex-shrink-0"></i><span><strong class="font-semibold">Innovation & Future-Proofing:</strong> Staying abreast of emerging AI trends and research in education, ensuring AWPS remains at the forefront of educational innovation and prepares students to be "Risk-takers" in a positive sense.</span></li>
+                    </ul>
+                    <p class="mt-6">Ensuring these critical functions are effectively managed—whether through a designated AI Integration Lead, a dedicated team, or by assigning these responsibilities to existing leadership with appropriate support—is vital. This focused effort will ensure that AI adoption is thoughtful, purposeful, and truly enhances our commitment to providing an exceptional education that "develops character" and "prepares students for future success."</p>
+                </div>
+            </section>
+
+            <section class="my-8 sm:my-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-6 text-gray-800">A Vision for AI-Powered Excellence at AWPS</h2>
+                <div class="bg-white p-6 rounded-lg shadow-md text-gray-700 text-base sm:text-lg">
+                    <p>With strategic guidance and dedicated coordination for our AI integration plan, Al Wahda Private School can cultivate an environment where artificial intelligence acts as a powerful catalyst for achieving our vision. Imagine classrooms where learning is deeply personalized, where teachers are empowered with cutting-edge tools to inspire curiosity, and where students develop critical AI literacy alongside a strong moral compass. AI can help us further our mission of "educational innovation while respecting cultural values," for instance, by creating interactive ways for students to explore history and culture or by providing tools to support diverse linguistic backgrounds. This is not about replacing the invaluable human element of education, but augmenting it, ensuring AWPS continues to be a beacon of academic excellence and leadership development for all members of our community.</p>
+                </div>
+            </section>
+
+            <section class="my-8 sm:my-12 text-center">
+                <div class="awps-accent-bg text-white p-8 sm:p-12 rounded-lg shadow-xl">
+                    <h2 class="text-3xl sm:text-4xl font-bold mb-6">Pioneering the Future of Education, Together</h2>
+                    <p class="text-lg sm:text-xl mb-8 max-w-3xl mx-auto">I believe that the strategic integration of Artificial Intelligence, guided by the comprehensive plan outlined herein and supported by dedicated leadership and coordination, will significantly enhance our ability to deliver on the mission of Al Wahda Private School. It is an investment in our students, our educators, and our collective future.</p>
+                    <p class="text-xl sm:text-2xl font-semibold">I formally propose the adoption and implementation of this Strategic AI Integration Plan, which will require dedicated leadership, coordination, and appropriate resourcing to guide this transformative and vital journey for Al Wahda Private School.</p>
+                </div>
+            </section>
+            <div id="customLinks-proposalTab" class="custom-links-container">
+                </div>
+        </div>
+
+        <div id="planTab" class="tab-content">
+            <section class="my-8 sm:my-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 text-gray-800">Proposed First-Year Action Plan for AI Integration</h2>
+                <p class="text-center text-gray-600 mb-10 text-base sm:text-lg">A phased approach to strategically integrate Artificial Intelligence at Al Wahda Private School, fostering innovation and enhancing educational excellence. This plan emphasizes a <strong class="awps-accent-text">spiral implementation</strong>, beginning with Grade 12 to prepare them for university, then progressively integrating AI across the whole school in subsequent terms and years. The execution of this plan will be overseen by a <strong class="awps-accent-text">Designated AI Lead/Team.</strong></p>
+
+                <div class="mb-10">
+                    <h3 class="text-2xl sm:text-3xl font-semibold mb-6 phase-title"><i class="fas fa-binoculars mr-3 awps-accent-text"></i>Phase 1: Foundation & Discovery (Months 1-3)</h3>
+                    <h4 class="sub-section-title font-semibold text-gray-700 mb-3">Overall Goal:</h4>
+                    <p class="text-gray-600 mb-6 text-sm sm:text-base">Led by the Designated AI Lead/Team, to thoroughly understand the current educational and technological landscape at AWPS, build key relationships, identify needs and opportunities for AI integration (with initial consideration for Grade 12 university preparedness), and lay the groundwork for a strategic AI adoption plan.</p>
+
+                    <h5 class="text-lg font-semibold text-gray-700 mb-2">Key Objectives & Actions (led by Designated AI Lead/Team):</h5>
+                    <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base pl-4">
+                        <li><strong>Deep Dive into AWPS Ecosystem:</strong>
+                            <ul class="list-circle list-inside ml-4 mt-1 space-y-1">
+                                <li>Meet with school leadership, department heads, IT personnel, and representative groups of teachers and students (including Grade 12 representatives).</li>
+                                <li>Review AWPS mission, vision, values, strategic plans, curriculum documents, existing technology infrastructure, and relevant policies.</li>
+                                <li>Establish clear communication channels with key stakeholders.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Needs Assessment & Opportunity Analysis:</strong>
+                            <ul class="list-circle list-inside ml-4 mt-1 space-y-1">
+                                <li>Conduct surveys and focus groups to identify challenges where AI could provide solutions and to gauge AI readiness/interest across all grades, with a specific lens on the immediate needs of Grade 12 students for university preparation.</li>
+                                <li>Analyze current curriculum and teaching strategies across various subjects and grade levels to pinpoint impactful AI integration points (e.g., personalized learning, skill development, administrative efficiency).</li>
+                                <li>Assess current digital literacy levels and access to technology among staff and students.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Initial AI Research & Tool Evaluation:</strong>
+                            <ul class="list-circle list-inside ml-4 mt-1 space-y-1">
+                                <li>Research and identify ethically sound, pedagogically relevant AI tools suitable for K-12, aligning with AWPS's specific context (e.g., curriculum, bilingual needs), considering tools that can specifically support Grade 12 academic rigor and research skills.</li>
+                                <li>Develop preliminary criteria for AI tool selection (e.g., data privacy standards, ease of use, curriculum alignment, scalability, cost-effectiveness, vendor support).</li>
+                            </ul>
+                        </li>
+                        <li><strong>Develop Draft AI Integration Roadmap & KPIs:</strong>
+                             <ul class="list-circle list-inside ml-4 mt-1 space-y-1">
+                                <li>Outline a high-level, phased AI adoption roadmap, detailing the spiral implementation approach starting with Grade 12 and expanding.</li>
+                                <li>Define initial Key Performance Indicators (KPIs) to measure the success and impact of AI initiatives (e.g., teacher adoption rates, student engagement, learning outcomes, time saved), with specific metrics for the Grade 12 pilot.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="mb-10">
+                    <h3 class="text-2xl sm:text-3xl font-semibold mb-6 phase-title"><i class="fas fa-drafting-compass mr-3 awps-accent-text"></i>Phase 2: Strategic Planning & Capacity Building (Months 4-6)</h3>
+                    <h4 class="sub-section-title font-semibold text-gray-700 mb-3">Overall Goal:</h4>
+                    <p class="text-gray-600 mb-6 text-sm sm:text-base">The Designated AI Lead/Team will develop targeted AI integration plans, prioritizing Grade 12 for initial pilot programs due to their imminent transition to university. Design comprehensive professional development programs, establish ethical guidelines, and prepare for these initial pilot implementations, with a clear strategy for subsequent spiral expansion to other grades.</p>
+
+                    <h5 class="text-lg font-semibold text-gray-700 mb-2">Key Objectives & Actions (coordinated by Designated AI Lead/Team):</h5>
+                    <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base pl-4">
+                        <li><strong>Curriculum Integration & Pilot Program Design:</strong>
+                            <ul class="list-circle list-inside ml-4 mt-1 space-y-1">
+                                <li>Collaborate with curriculum leaders and Grade 12 teacher representatives to co-design specific AI integration plans for selected subjects relevant to university preparedness (e.g., research skills, advanced writing, critical analysis).</li>
+                                <li>Clearly define objectives, activities, and assessment methods for Grade 12 pilot programs. Identify and recruit volunteer Grade 12 teachers/departments for pilots.</li>
+                                <li>Outline a preliminary plan for how successful strategies from the Grade 12 pilot can be adapted and spiraled into other grade levels in future phases.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Develop Comprehensive Professional Development (PD) Program:</strong>
+                            <ul class="list-circle list-inside ml-4 mt-1 space-y-1">
+                                <li>Design engaging, practical, and ongoing PD sessions focusing on: foundational AI literacy, effective pedagogical use of selected AI tools, and critical evaluation of AI outputs, with initial PD tailored to support the Grade 12 pilot.</li>
+                                <li>Crucially, integrate training on <strong class="font-semibold">Ethical AI Use:</strong> data privacy (student and staff), bias awareness and mitigation, academic integrity, responsible AI prompting, and adherence to AWPS-specific AI usage policies.</li>
+                                <li>Create a repository of support resources (e.g., guides, video tutorials, best practice examples, troubleshooting FAQs).</li>
+                            </ul>
+                        </li>
+                        <li><strong>Establish AI Governance & Ethical Framework:</strong>
+                            <ul class="list-circle list-inside ml-4 mt-1 space-y-1">
+                                <li>Draft and propose clear, actionable school policies for responsible AI use, data governance, and digital citizenship in the age of AI, ensuring alignment with AWPS values ("Principled," "Integrity") for review by the AI Steering Committee.</li>
+                                <li>Support the formation of an AI ethics advisory group (optional, with teacher/admin representation).</li>
+                            </ul>
+                        </li>
+                         <li><strong>Technical & Infrastructure Readiness:</strong>
+                            <ul class="list-circle list-inside ml-4 mt-1 space-y-1">
+                                <li>Liaise with the IT department to ensure necessary infrastructure, software licenses, device compatibility, and technical support are robust and ready for the Grade 12 pilot programs.</li>
+                                <li>Address any cybersecurity or data protection protocols related to new AI tools.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="mb-10">
+                    <h3 class="text-2xl sm:text-3xl font-semibold mb-6 phase-title"><i class="fas fa-cogs mr-3 awps-accent-text"></i>Phase 3: Pilot Implementation & Iterative Learning (Months 7-9)</h3>
+                    <h4 class="sub-section-title font-semibold text-gray-700 mb-3">Overall Goal:</h4>
+                    <p class="text-gray-600 mb-6 text-sm sm:text-base">The Designated AI Lead/Team will oversee the launch of initial AI pilot programs, focusing on Grade 12 to enhance their university preparedness. They will ensure robust support to participants, systematic collection of data and feedback, and learning from these early implementation experiences to inform the subsequent spiral rollout to other grades.</p>
+
+                    <h5 class="text-lg font-semibold text-gray-700 mb-2">Key Objectives & Actions (managed by Designated AI Lead/Team):</h5>
+                    <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base pl-4">
+                        <li><strong>Launch & Support Pilot Programs:</strong>
+                            <ul class="list-circle list-inside ml-4 mt-1 space-y-1">
+                                <li>Roll out the first wave of AI tools and pedagogical strategies in selected Grade 12 classrooms/departments.</li>
+                                <li>Provide intensive, ongoing support, coaching, and co-teaching (where appropriate) to pilot teachers. Establish a feedback loop for immediate assistance.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Systematic Data & Feedback Collection:</strong>
+                            <ul class="list-circle list-inside ml-4 mt-1 space-y-1">
+                                <li>Implement a mixed-methods approach to collect data on: student engagement and learning outcomes (e.g., pre/post-assessments, project quality, qualitative observations), teacher experiences (e.g., usability, effectiveness, time impact, challenges via surveys, interviews, logs), and student perceptions (e.g., surveys, focus groups on learning experience), specifically within the Grade 12 cohort.</li>
+                                <li>Track technical performance, support requests, and tool usage patterns.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Monitor Ethical Use & Policy Adherence:</strong>
+                            <ul class="list-circle list-inside ml-4 mt-1 space-y-1">
+                                <li>Actively monitor the ethical application of AI tools and adherence to established guidelines within the pilot.</li>
+                                <li>Address any emerging ethical concerns or policy breaches promptly and transparently.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Facilitate Collaborative Learning & Iteration:</strong>
+                            <ul class="list-circle list-inside ml-4 mt-1 space-y-1">
+                                <li>Organize regular check-in meetings and workshops for Grade 12 pilot teachers to share experiences, successes, challenges, and effective practices.</li>
+                                <li>Make iterative adjustments to pilot implementations based on real-time feedback.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl sm:text-3xl font-semibold mb-6 phase-title"><i class="fas fa-chart-line mr-3 awps-accent-text"></i>Phase 4: Analysis, Refinement & Strategic Scaling (Months 10-12)</h3>
+                    <h4 class="sub-section-title font-semibold text-gray-700 mb-3">Overall Goal:</h4>
+                    <p class="text-gray-600 mb-6 text-sm sm:text-base">The Designated AI Lead/Team will analyze data from the Grade 12 pilot program comprehensively, refine AI integration strategies and PD, report findings to leadership, and develop a strategic plan for a broader, sustainable, and spiraled AI adoption across other grade levels in Year 2 and beyond.</p>
+
+                    <h5 class="text-lg font-semibold text-gray-700 mb-2">Key Objectives & Actions (driven by Designated AI Lead/Team):</h5>
+                    <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base pl-4">
+                        <li><strong>Comprehensive Data Analysis & Impact Reporting:</strong>
+                            <ul class="list-circle list-inside ml-4 mt-1 space-y-1">
+                                <li>Rigorously analyze all collected quantitative and qualitative data from the Grade 12 pilot to assess impact against KPIs.</li>
+                                <li>Identify key successes, persistent challenges, lessons learned, and areas for improvement, specifically considering the university preparedness objective.</li>
+                                <li>Prepare and present a comprehensive impact report to school leadership, including actionable recommendations for the spiral expansion.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Refine AI Strategies, Toolset, and PD Programs:</strong>
+                            <ul class="list-circle list-inside ml-4 mt-1 space-y-1">
+                                <li>Modify AI integration strategies, selected AI tools (if necessary), and PD content/delivery based on pilot findings and feedback, considering how to adapt approaches for different grade levels.</li>
+                                <li>Update support resources, ethical guidelines, and policy documents as needed.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Develop Strategic Plan for Scaled Implementation:</strong>
+                            <ul class="list-circle list-inside ml-4 mt-1 space-y-1">
+                                <li>Create a detailed, phased plan for expanding successful AI initiatives, following a <strong class="font-semibold">spiral approach</strong> from Grade 12 to other grade levels in subsequent terms and years. This plan will detail how AI will be integrated age-appropriately across the school.</li>
+                                <li>Outline resource requirements (budget, staffing, technology, ongoing PD) for wider, sustainable rollout. Consider different models for adoption for various school sections (e.g., Primary, Middle, High School).</li>
+                            </ul>
+                        </li>
+                        <li><strong>Showcase Successes & Foster School-Wide Engagement:</strong>
+                            <ul class="list-circle list-inside ml-4 mt-1 space-y-1">
+                                <li>Share positive outcomes, teacher testimonials, and student work from the Grade 12 pilot programs with the broader AWPS community (e.g., newsletters, staff meetings, parent information sessions where appropriate).</li>
+                                <li>Build enthusiasm, address concerns, and foster a culture of responsible innovation, explaining the rationale for the spiral implementation.</li>
+                            </ul>
+                        </li>
+                         <li><strong>Plan for Year 2 & Continuous Improvement:</strong>
+                            <ul class="list-circle list-inside ml-4 mt-1 space-y-1">
+                                <li>Begin outlining goals, priorities, and potential new initiatives for the second year of AI integration, focusing on the next stages of the spiral rollout.</li>
+                                <li>Establish mechanisms for ongoing monitoring, evaluation, and continuous improvement of AI use across the school.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                 <div id="customLinks-planTab" class="custom-links-container">
+                    </div>
+            </section>
+        </div>
+
+        <div id="pdPlanTab" class="tab-content">
+            <section class="my-8 sm:my-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 text-gray-800">Teacher Professional Development (PD) Plan for AI Integration</h2>
+                <p class="text-center text-gray-600 mb-10 text-base sm:text-lg">Empowering Al Wahda Private School educators with the knowledge, skills, and ethical framework to effectively leverage Artificial Intelligence for enhanced teaching and learning. This PD plan will be facilitated by the <strong class="awps-accent-text">Designated AI Lead/Team</strong>, in alignment with the UAE Ministry of Education's vision and global best practices.</p>
+
+                <div class="mb-10">
+                    <h3 class="text-2xl sm:text-3xl font-semibold mb-6 phase-title"><i class="fas fa-poll-h mr-3 awps-accent-text"></i>Phase 1: Understanding Teacher Needs & Readiness (Initial Survey & Analysis)</h3>
+                    <p class="text-gray-700 mb-4 text-sm sm:text-base">Effective professional development begins with understanding the current landscape. An initial anonymous survey will be crucial to tailor the PD program effectively. <span class="citation">[Cite research on needs-based PD, e.g., Guskey, 2002; Darling-Hammond et al., 2017]</span></p>
+                    <h4 class="sub-section-title font-semibold">Objective:</h4>
+                    <p class="text-gray-600 mb-4 text-sm sm:text-base">To assess teachers' current AI usage, comfort levels, perceived needs, and perspectives on AI's ethical implications in education.</p>
+                    <h4 class="sub-section-title font-semibold">Method:</h4>
+                    <p class="text-gray-600 mb-4 text-sm sm:text-base">Distribution of a comprehensive, anonymous online survey to all teaching staff, administered by the Designated AI Lead/Team.</p>
+                    <h4 class="sub-section-title font-semibold">Key Survey Areas:</h4>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2 text-sm sm:text-base pl-4">
+                        <li>Current familiarity and use of AI tools (personal and professional).</li>
+                        <li>Perceived benefits and challenges of AI in their specific subject areas and grade levels.</li>
+                        <li>Attitudes towards the ethical use of AI by students: Is it viewed as a helpful tool for learning, a potential crutch, or a threat to academic integrity? What are the specific concerns?</li>
+                        <li>Understanding of and concerns regarding academic integrity, data privacy, algorithmic bias, and the responsible use of AI-generated content.</li>
+                        <li>Specific AI-powered tools or skills teachers are interested in learning (e.g., for lesson planning, assessment, differentiation, content creation).</li>
+                        <li>Preferred PD formats (e.g., workshops, online modules, peer coaching) and optimal timings.</li>
+                        <li>Confidence levels in teaching students about ethical AI use.</li>
+                    </ul>
+                    <p class="mt-4 text-gray-700 text-sm sm:text-base">The anonymized, aggregated results will directly inform the prioritization and customization of subsequent PD modules, ensuring relevance and buy-in.</p>
+                </div>
+
+                <div class="mb-10">
+                    <h3 class="text-2xl sm:text-3xl font-semibold mb-6 phase-title"><i class="fas fa-chalkboard-teacher mr-3 awps-accent-text"></i>Phase 2: Foundational AI Literacy & Ethical Framework (Core PD Module 1)</h3>
+                    <p class="text-gray-700 mb-4 text-sm sm:text-base">This foundational module aims to establish a shared understanding of AI and its ethical landscape, addressing insights from the initial survey while covering essential, non-negotiable concepts. <span class="citation">[Cite research on the importance of AI literacy and ethical training for educators, e.g., UNESCO AI Competency Framework for Teachers]</span></p>
+                    <h4 class="sub-section-title font-semibold">Objective:</h4>
+                    <p class="text-gray-600 mb-4 text-sm sm:text-base">To equip all educators with core AI literacy, an understanding of AI's educational potential, and a robust framework for its ethical application in line with AWPS values and UAE MoE guidelines.</p>
+                    <h4 class="sub-section-title font-semibold">Content & Activities:</h4>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2 text-sm sm:text-base pl-4">
+                        <li><strong>Demystifying AI:</strong> What is AI, Machine Learning, LLMs, Generative AI? Simple explanations with practical examples relevant to education.</li>
+                        <li><strong>AI in Our World:</strong> Exploring AI's current impact on various sectors and its specific relevance to K-12 education.</li>
+                        <li><strong>AWPS & UAE Vision for AI:</strong> Overview of the school's AI integration goals and the UAE Ministry of Education's AI curriculum mandate.</li>
+                        <li><strong>Deep Dive into Ethical AI in Education:</strong> Interactive workshops and case study discussions focusing on:
+                            <ul class="list-circle list-inside ml-4 mt-1 space-y-1">
+                                <li><strong>Data Privacy & Security:</strong> Protecting student and teacher data when using AI tools (GDPR, FERPA principles, UAE data protection laws).</li>
+                                <li><strong>Algorithmic Bias:</strong> Understanding how biases can be embedded in AI, how to critically evaluate AI outputs for bias, and strategies for mitigation.</li>
+                                <li><strong>Academic Integrity & Authenticity:</strong> Defining appropriate AI assistance vs. misuse/plagiarism. Developing clear expectations for student work.</li>
+                                <li><strong>Transparency & Disclosure:</strong> Guidelines for when and how teachers and students should disclose the use of AI tools.</li>
+                                <li><strong>Critical Evaluation of AI Content:</strong> Strategies for fact-checking, identifying "hallucinations," and verifying AI-generated information.</li>
+                                <li><strong>Fostering Digital Citizenship:</strong> Preparing students to be responsible and ethical users and creators in an AI-suffused world.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Addressing Survey Insights:</strong> Presentation and discussion of anonymized key themes and concerns raised in the initial teacher survey.</li>
+                        <li><strong>Introduction to AWPS AI Usage Policy:</strong> Review and discussion of the school's (to be developed) Acceptable Use Policy for AI.</li>
+                    </ul>
+                </div>
+
+                <div class="mb-10">
+                    <h3 class="text-2xl sm:text-3xl font-semibold mb-6 phase-title"><i class="fas fa-tools mr-3 awps-accent-text"></i>Phase 3: Practical AI Tool Integration & Innovative Pedagogy (Core PD Module 2 & Ongoing Workshops)</h3>
+                    <p class="text-gray-700 mb-4 text-sm sm:text-base">This phase focuses on hands-on training with specific, vetted AI tools and integrating them into pedagogical practices, including the development of AI-resistant assessment strategies. <span class="citation">[Cite research on effective edtech PD emphasizing active learning and pedagogical integration, e.g., ISTE Standards for Educators]</span></p>
+                    <h4 class="sub-section-title font-semibold">Objective:</h4>
+                    <p class="text-gray-600 mb-4 text-sm sm:text-base">To empower teachers with the practical skills to use selected AI tools for enhancing instruction, student engagement, and productivity, and to design assessments that promote critical thinking and academic integrity, including how to <strong class="font-semibold">AI-proof assessments</strong>.</p>
+                    <h4 class="sub-section-title font-semibold">Content & Activities (Examples, to be refined based on survey & tool selection):</h4>
+                    <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base pl-4">
+                        <li><strong>AI for Accessibility, Differentiation & Content Creation:</strong>
+                            <ul class="list-circle list-inside ml-4 mt-1 space-y-2">
+                                <li><strong>Google NotebookLM:</strong>
+                                    <ul class="list-square list-inside ml-6 mt-1 space-y-1">
+                                        <li>Sourcing & Uploading: Using diverse materials (texts, PDFs, Google Drive files, web links).</li>
+                                        <li>AI-Powered Features: Generating summaries, FAQs, glossaries, identifying key concepts.</li>
+                                        <li><strong>Focus on Accessibility:</strong> Step-by-step guide to creating audio overviews (podcast-style content) from source materials to support students with reading difficulties, auditory learners, or for revision. <span class="citation">(Research on UDL & benefits of audio content, e.g., Rose & Meyer, 2002)</span></li>
+                                    </ul>
+                                </li>
+                                <li><strong>Google Gemini (or similar advanced LLM):</strong>
+                                    <ul class="list-square list-inside ml-6 mt-1 space-y-1">
+                                        <li>Effective Prompt Engineering: Crafting clear, contextual prompts for desired educational outputs.</li>
+                                        <li>Lesson Planning: Generating differentiated lesson plans, learning objectives, and engaging activities.</li>
+                                        <li>Content Adaptation: Creating leveled reading passages and varied explanations for diverse learners.</li>
+                                        <li>Interactive Learning: Brainstorming ideas and generating content for simple educational games, interactive quiz questions, debate topics, and role-playing scenarios.</li>
+                                        <li>Productivity: Drafting emails, reports, and other administrative communications.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><strong>Empowering Students with Ethical AI Use:</strong>
+                            <ul class="list-circle list-inside ml-4 mt-1 space-y-1">
+                                <li>Pedagogical strategies and age-appropriate resources for teaching students to:
+                                    <ul class="list-square list-inside ml-6 mt-1 space-y-1">
+                                        <li>Critically analyze AI-generated content for accuracy and bias.</li>
+                                        <li>Understand the concept of "AI hallucinations."</li>
+                                        <li>Cite AI assistance appropriately, distinguishing their own work from AI contributions.</li>
+                                        <li>Use AI as a collaborative partner for brainstorming, research, and feedback, not as a replacement for original thought and effort.</li>
+                                    </ul>
+                                </li>
+                                <li>Facilitating classroom discussions on the societal impact of AI.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Designing Innovative & AI-Resistant ("AI-Proof") Assessment Strategies:</strong>
+                            <ul class="list-circle list-inside ml-4 mt-1 space-y-1">
+                                <li>Rationale: Moving beyond traditional assessments to ensure authentic demonstration of learning and mitigate AI-facilitated academic misconduct. Training teachers on how to design assessments that require higher-order thinking skills that current AI tools cannot easily replicate. <span class="citation">[Cite research on authentic assessment and AI, e.g., Boud & Falchikov, 2006; Eaton, 2021]</span></li>
+                                <li>Workshops on designing and implementing:
+                                    <ul class="list-square list-inside ml-6 mt-1 space-y-1">
+                                        <li><strong>Student Presentations & Oral Defenses:</strong> Assessing depth of understanding, synthesis skills, and ability to respond to questions.</li>
+                                        <li><strong>In-Class Debates & Socratic Seminars:</strong> Evaluating critical thinking, argumentation, research, and communication skills.</li>
+                                        <li><strong>Teacher-Student Interviews/Conferences:</strong> Using structured conversations to probe understanding, provide personalized feedback, and assess learning progress. This can be a significant component of assessment rubrics.</li>
+                                        <li><strong>Process-Oriented Projects:</strong> Assessing the learning journey (e.g., research process, drafts, reflections, collaboration) rather than just the final product.</li>
+                                        <li><strong>Performance Tasks & Real-World Problem Solving:</strong> Requiring application of knowledge in novel contexts.</li>
+                                        <li>Developing rubrics that value critical thinking, creativity, and process alongside content knowledge.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p class="mt-3 text-sm sm:text-base"><strong>Format:</strong> A blended approach including interactive workshops, hands-on practice, collaborative planning sessions (by department/grade level), peer observation/coaching, and access to a rich repository of online tutorials and resources.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl sm:text-3xl font-semibold mb-6 phase-title"><i class="fas fa-sync-alt mr-3 awps-accent-text"></i>Phase 4: Ongoing Support, Community of Practice & Advanced Learning</h3>
+                     <p class="text-gray-700 mb-4 text-sm sm:text-base">Sustainable integration of AI requires continuous support, collaborative learning, and opportunities for growth as technologies and pedagogical approaches evolve. <span class="citation">[Cite research on sustained PD and communities of practice, e.g., Wenger, McDermott, & Snyder, 2002]</span></p>
+                    <h4 class="sub-section-title font-semibold">Objective:</h4>
+                    <p class="text-gray-600 mb-4 text-sm sm:text-base">To provide continuous learning opportunities, foster a collaborative culture of AI exploration and innovation, and offer advanced training based on evolving needs, emerging technologies, and teacher interest, all supported by the Designated AI Lead/Team.</p>
+                    <h4 class="sub-section-title font-semibold">Activities:</h4>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2 text-sm sm:text-base pl-4">
+                        <li><strong>Dedicated Support Channels:</strong> Regular office hours (virtual and in-person) with the Designated AI Lead/Team for troubleshooting and pedagogical advice.</li>
+                        <li><strong>AWPS "AI Innovators" Community of Practice (CoP):</strong> Establishing a voluntary group for teachers passionate about AI to share best practices, co-develop resources, pilot new tools, and lead peer-to-peer learning, facilitated by the Designated AI Lead/Team.</li>
+                        <li><strong>Subject-Specific & Grade-Level Workshops:</strong> Tailored sessions focusing on AI applications relevant to specific disciplines (e.g., AI in science labs, AI for language learning, AI in primary years).</li>
+                        <li><strong>Showcase & Celebration of Practice:</strong> Regular opportunities (e.g., mini-conferences, digital showcases) for teachers to share successful AI integration strategies and student work.</li>
+                        <li><strong>Resource Hub Maintenance & Expansion:</strong> Continuously updating the repository of AI tools, tutorials, lesson plans, and ethical guidelines.</li>
+                        <li><strong>Advanced PD Modules:</strong> Offering specialized training on topics such as:
+                            <ul class="list-circle list-inside ml-4 mt-1 space-y-1">
+                                <li>AI for educational data analysis and formative feedback.</li>
+                                <li>Advanced prompt engineering techniques for nuanced educational outcomes.</li>
+                                <li>Exploring emerging AI technologies (e.g., VR/AR integrations with AI).</li>
+                                <li>Guiding students in creating their own simple AI projects (where appropriate for curriculum).</li>
+                            </ul>
+                        </li>
+                        <li><strong>External Speaker Series & Conference Participation:</strong> Inviting experts in AI and education, and supporting teacher attendance at relevant conferences.</li>
+                    </ul>
+                </div>
+                 <div id="customLinks-pdPlanTab" class="custom-links-container">
+                    </div>
+            </section>
+        </div>
+
+        <div id="surveyTab" class="tab-content">
+            <section class="my-8 sm:my-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 text-gray-800">Sample AI Readiness & Perceptions Surveys</h2>
+                <p class="text-center text-gray-600 mb-10 text-base sm:text-lg">These sample questions are designed to gather initial insights from teachers and students. They can be adapted and administered using platforms like Microsoft Forms for efficient data collection and analysis. Responses will be anonymous to encourage honest feedback.</p>
+
+                <div class="mb-12">
+                    <h3 class="text-2xl sm:text-3xl font-semibold mb-6 phase-title"><i class="fas fa-user-tie mr-3 awps-accent-text"></i>Sample Survey for Teachers</h3>
+                    <p class="text-gray-700 mb-4 text-sm sm:text-base"><strong>Introduction:</strong> Al Wahda Private School is exploring ways to thoughtfully integrate Artificial Intelligence (AI) to support teaching and learning. Your anonymous feedback is crucial in shaping our approach and professional development. Please answer the following questions honestly.</p>
+
+                    <h4 class="sub-section-title font-semibold">Section 1: Familiarity & Current Use of AI</h4>
+                    <div class="survey-question">
+                        <p><strong>1. How familiar are you with the concept of Artificial Intelligence (AI) in education?</strong></p>
+                        <ul>
+                            <li><input type="radio" name="teacher_familiarity" value="not_familiar"> Not at all familiar</li>
+                            <li><input type="radio" name="teacher_familiarity" value="slightly_familiar"> Slightly familiar</li>
+                            <li><input type="radio" name="teacher_familiarity" value="moderately_familiar"> Moderately familiar</li>
+                            <li><input type="radio" name="teacher_familiarity" value="very_familiar"> Very familiar</li>
+                            <li><input type="radio" name="teacher_familiarity" value="expert"> Expert</li>
+                        </ul>
+                    </div>
+                    <div class="survey-question">
+                        <p><strong>2. Have you used any AI tools for your teaching practice or professional tasks in the past year? (e.g., for lesson planning, creating materials, grading, communication)</strong></p>
+                        <ul>
+                            <li><input type="radio" name="teacher_use" value="yes"> Yes</li>
+                            <li><input type="radio" name="teacher_use" value="no"> No</li>
+                        </ul>
+                        <p class="mt-2"><em>If yes, please list which tools and briefly describe how you used them:</em></p>
+                        <textarea rows="3" class="w-full p-2 border border-gray-300 rounded-md text-sm sm:text-base" placeholder="e.g., ChatGPT for brainstorming lesson ideas, Grammarly for checking emails..."></textarea>
+                    </div>
+
+                    <h4 class="sub-section-title font-semibold">Section 2: Perceptions of AI in Education</h4>
+                    <div class="survey-question">
+                        <p><strong>3. To what extent do you agree with the following statements about using AI in education?</strong> (Scale: Strongly Disagree, Disagree, Neutral, Agree, Strongly Agree)</p>
+                        <ul>
+                            <li>AI can help personalize learning for students.</li>
+                            <li>AI can save teachers time on administrative tasks.</li>
+                            <li>AI can improve student engagement.</li>
+                            <li>I am excited about the potential of AI in education.</li>
+                            <li>I am concerned about the potential challenges of AI in education.</li>
+                        </ul>
+                        <p class="mt-2"><em>(This would be a Likert scale in MS Forms)</em></p>
+                    </div>
+                     <div class="survey-question">
+                        <p><strong>4. What do you see as the biggest potential benefit of using AI in your subject area/grade level?</strong></p>
+                        <textarea rows="3" class="w-full p-2 border border-gray-300 rounded-md text-sm sm:text-base" placeholder="Open-ended response"></textarea>
+                    </div>
+                    <div class="survey-question">
+                        <p><strong>5. What is your biggest concern regarding the use of AI in education at AWPS?</strong></p>
+                        <textarea rows="3" class="w-full p-2 border border-gray-300 rounded-md text-sm sm:text-base" placeholder="Open-ended response"></textarea>
+                    </div>
+
+                    <h4 class="sub-section-title font-semibold">Section 3: Ethical Considerations</h4>
+                     <div class="survey-question">
+                        <p><strong>6. In your opinion, is the use of AI tools by students for their schoolwork:</strong></p>
+                        <ul>
+                            <li><input type="radio" name="teacher_ethics_student_use" value="mostly_helpful"> Mostly helpful for their learning</li>
+                            <li><input type="radio" name="teacher_ethics_student_use" value="balanced"> A balance of helpful and harmful</li>
+                            <li><input type="radio" name="teacher_ethics_student_use" value="mostly_harmful"> Mostly harmful to their learning/academic integrity</li>
+                            <li><input type="radio" name="teacher_ethics_student_use" value="unsure"> Unsure</li>
+                        </ul>
+                        <p class="mt-2"><em>Please explain your reasoning briefly:</em></p>
+                        <textarea rows="2" class="w-full p-2 border border-gray-300 rounded-md text-sm sm:text-base"></textarea>
+                    </div>
+                    <div class="survey-question">
+                        <p><strong>7. How concerned are you about the following ethical issues related to AI in education?</strong> (Scale: Not at all concerned, Slightly, Moderately, Very, Extremely concerned)</p>
+                        <ul>
+                            <li>Student academic integrity (e.g., plagiarism using AI)</li>
+                            <li>Data privacy and security of student information</li>
+                            <li>Algorithmic bias in AI tools disadvantaging certain students</li>
+                            <li>Over-reliance on AI by students, hindering critical thinking</li>
+                            <li>The digital divide (unequal access to AI tools)</li>
+                        </ul>
+                         <p class="mt-2"><em>(This would be a Likert scale in MS Forms)</em></p>
+                    </div>
+                    <div class="survey-question">
+                        <p><strong>8. How confident do you feel in your ability to guide students on the ethical use of AI tools?</strong></p>
+                         <ul>
+                            <li><input type="radio" name="teacher_confidence_ethics" value="not_confident"> Not at all confident</li>
+                            <li><input type="radio" name="teacher_confidence_ethics" value="slightly_confident"> Slightly confident</li>
+                            <li><input type="radio" name="teacher_confidence_ethics" value="moderately_confident"> Moderately confident</li>
+                            <li><input type="radio" name="teacher_confidence_ethics" value="very_confident"> Very confident</li>
+                            <li><input type="radio" name="teacher_confidence_ethics" value="extremely_confident"> Extremely confident</li>
+                        </ul>
+                    </div>
+
+                    <h4 class="sub-section-title font-semibold">Section 4: Professional Development Needs</h4>
+                    <div class="survey-question">
+                        <p><strong>9. What specific AI-related skills or knowledge would be most beneficial for your professional development? (Select all that apply)</strong></p>
+                        <ul>
+                            <li><input type="checkbox" name="teacher_pd_skills" value="understanding_ai"> Understanding basic AI concepts</li>
+                            <li><input type="checkbox" name="teacher_pd_skills" value="using_specific_tools"> Using specific AI tools for lesson planning (e.g., Gemini)</li>
+                            <li><input type="checkbox" name="teacher_pd_skills" value="ai_assessment"> Using AI for assessment and feedback</li>
+                            <li><input type="checkbox" name="teacher_pd_skills" value="ai_differentiation"> Using AI for differentiation and personalized learning (e.g., NotebookLM)</li>
+                            <li><input type="checkbox" name="teacher_pd_skills" value="ethical_guidance"> Teaching students about ethical AI use</li>
+                            <li><input type="checkbox" name="teacher_pd_skills" value="data_privacy"> Understanding data privacy with AI tools</li>
+                            <li><input type="checkbox" name="teacher_pd_skills" value="ai_critique"> Critically evaluating AI tools and content</li>
+                            <li>Other (please specify): <input type="text" class="p-1 border border-gray-300 rounded-md text-sm sm:text-base"></li>
+                        </ul>
+                    </div>
+                    <div class="survey-question">
+                        <p><strong>10. What is your preferred format for professional development on AI? (Select up to two)</strong></p>
+                        <ul>
+                            <li><input type="checkbox" name="teacher_pd_format" value="workshops"> In-person workshops</li>
+                            <li><input type="checkbox" name="teacher_pd_format" value="online_modules"> Self-paced online modules</li>
+                            <li><input type="checkbox" name="teacher_pd_format" value="webinars"> Live webinars</li>
+                            <li><input type="checkbox" name="teacher_pd_format" value="peer_coaching"> Peer coaching / mentoring</li>
+                            <li><input type="checkbox" name="teacher_pd_format" value="collaborative"> Collaborative planning sessions with colleagues</li>
+                        </ul>
+                    </div>
+                    <p class="mt-6 text-gray-700 text-sm sm:text-base"><strong>Thank you for your valuable input!</strong></p>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl sm:text-3xl font-semibold mb-6 phase-title"><i class="fas fa-user-graduate mr-3 awps-accent-text"></i>Sample Survey for Students (e.g., Middle/High School)</h3>
+                    <p class="text-gray-700 mb-4 text-sm sm:text-base"><strong>Introduction:</strong> We want to know what you think about Artificial Intelligence (AI) and how it can be used in our school. AI includes tools like ChatGPT, apps that help you study, or tools that create images from text. Your honest and anonymous answers will help us make learning better for everyone at AWPS.</p>
+
+                    <h4 class="sub-section-title font-semibold">Section 1: Your Experience with AI</h4>
+                    <div class="survey-question">
+                        <p><strong>1. Before this survey, how much did you know about Artificial Intelligence (AI)?</strong></p>
+                        <ul>
+                            <li><input type="radio" name="student_familiarity" value="nothing"> Nothing at all</li>
+                            <li><input type="radio" name="student_familiarity" value="a_little"> A little bit</li>
+                            <li><input type="radio" name="student_familiarity" value="some"> Some</li>
+                            <li><input type="radio" name="student_familiarity" value="a_lot"> A lot</li>
+                        </ul>
+                    </div>
+                    <div class="survey-question">
+                        <p><strong>2. Have you ever used an AI tool for schoolwork or for fun? (e.g., to help with homework, write something, create art, get ideas)</strong></p>
+                        <ul>
+                            <li><input type="radio" name="student_use" value="yes_school"> Yes, for schoolwork</li>
+                            <li><input type="radio" name="student_use" value="yes_fun"> Yes, for fun</li>
+                            <li><input type="radio" name="student_use" value="yes_both"> Yes, for both school and fun</li>
+                            <li><input type="radio" name="student_use" value="no"> No, never</li>
+                            <li><input type="radio" name="student_use" value="not_sure"> I'm not sure</li>
+                        </ul>
+                         <p class="mt-2"><em>If yes, what tools have you used or what did you use them for? (You don't have to name specific tools if you don't remember)</em></p>
+                        <textarea rows="2" class="w-full p-2 border border-gray-300 rounded-md text-sm sm:text-base"></textarea>
+                    </div>
+
+                    <h4 class="sub-section-title font-semibold">Section 2: AI in Learning</h4>
+                    <div class="survey-question">
+                        <p><strong>3. How much do you agree with these statements about AI at school?</strong> (Scale: Strongly Disagree, Disagree, Not Sure, Agree, Strongly Agree)</p>
+                        <ul>
+                            <li>AI could help me understand difficult topics better.</li>
+                            <li>AI could make learning more interesting.</li>
+                            <li>AI could help me get my work done faster.</li>
+                            <li>I would like to learn more about how to use AI for school.</li>
+                        </ul>
+                        <p class="mt-2"><em>(This would be a Likert scale in MS Forms)</em></p>
+                    </div>
+                    <div class="survey-question">
+                        <p><strong>4. In what ways do you think AI could be MOST helpful for your learning?</strong></p>
+                        <textarea rows="3" class="w-full p-2 border border-gray-300 rounded-md text-sm sm:text-base" placeholder="e.g., explaining things, helping me practice, giving me ideas..."></textarea>
+                    </div>
+                     <div class="survey-question">
+                        <p><strong>5. Do you have any worries about using AI for school? If so, what are they?</strong></p>
+                        <textarea rows="3" class="w-full p-2 border border-gray-300 rounded-md text-sm sm:text-base" placeholder="e.g., getting wrong information, it being too hard to use, not learning things for myself..."></textarea>
+                    </div>
+
+                    <h4 class="sub-section-title font-semibold">Section 3: Using AI The Right Way (Ethics)</h4>
+                    <div class="survey-question">
+                        <p><strong>6. If you use an AI tool to help you with a school assignment, do you think it's important to tell your teacher that you used it?</strong></p>
+                        <ul>
+                            <li><input type="radio" name="student_ethics_disclosure" value="yes_always"> Yes, always</li>
+                            <li><input type="radio" name="student_ethics_disclosure" value="yes_sometimes"> Yes, sometimes (it depends)</li>
+                            <li><input type="radio" name="student_ethics_disclosure" value="no_not_really"> No, not really</li>
+                            <li><input type="radio" name="student_ethics_disclosure" value="not_sure"> I'm not sure</li>
+                        </ul>
+                    </div>
+                    <div class="survey-question">
+                        <p><strong>7. What do you think about using AI to write an entire essay or do a whole project for you?</strong></p>
+                        <ul>
+                            <li><input type="radio" name="student_ethics_originality" value="okay"> It's okay to do sometimes</li>
+                            <li><input type="radio" name="student_ethics_originality" value="not_okay"> It's not okay / it's like cheating</li>
+                            <li><input type="radio" name="student_ethics_originality" value="not_sure"> I'm not sure</li>
+                        </ul>
+                    </div>
+                     <div class="survey-question">
+                        <p><strong>8. Would you be interested in learning more about how to use AI tools fairly and honestly for your schoolwork?</strong></p>
+                        <ul>
+                            <li><input type="radio" name="student_ethics_learn" value="yes"> Yes, very interested</li>
+                            <li><input type="radio" name="student_ethics_learn" value="maybe"> Maybe / A little interested</li>
+                            <li><input type="radio" name="student_ethics_learn" value="no"> No, not really</li>
+                        </ul>
+                    </div>
+                    <p class="mt-6 text-gray-700 text-sm sm:text-base"><strong>Thanks for sharing your thoughts!</strong></p>
+                </div>
+                 <div id="customLinks-surveyTab" class="custom-links-container">
+                    </div>
+            </section>
+        </div>
+
+        <div id="governanceTab" class="tab-content">
+            <section class="my-8 sm:my-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 text-gray-800">Proposed AI Governance Structure for AWPS</h2>
+                <p class="text-center text-gray-600 mb-10 text-base sm:text-lg">Effective oversight and strategic direction are crucial for the successful and ethical integration of AI. This section outlines the proposed governance structure that will guide AI initiatives at Al Wahda Private School, working in conjunction with the Ethical AI Framework.</p>
+
+                <div class="mb-10">
+                    <h3 class="text-2xl sm:text-3xl font-semibold mb-6 phase-title"><i class="fas fa-sitemap mr-3 awps-accent-text"></i>AWPS AI Steering Committee</h3>
+                    <p class="text-gray-700 mb-4 text-sm sm:text-base">A dedicated <strong class="font-semibold">AWPS AI Steering Committee</strong> will be established to provide strategic oversight, ensure alignment with school values, and guide the implementation of AI policies and initiatives.</p>
+                    
+                    <h4 class="sub-section-title font-semibold">Mandate & Responsibilities:</h4>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2 text-sm sm:text-base pl-4">
+                        <li>Oversee the development, implementation, and regular review of the school-wide AI strategy.</li>
+                        <li>Ensure all AI initiatives align with the AWPS Ethical AI Framework, school mission, and UAE educational directives.</li>
+                        <li>Review and approve key AI-related policies, including those for tool vetting, acceptable use, data privacy, and academic integrity.</li>
+                        <li>Monitor the impact and effectiveness of AI integration across the school, using data and feedback to inform decisions.</li>
+                        <li>Champion responsible AI adoption and address emerging ethical challenges or concerns.</li>
+                        <li>Facilitate communication and collaboration regarding AI initiatives among different stakeholder groups.</li>
+                        <li>Advise school leadership on resource allocation and strategic priorities for AI in education.</li>
+                    </ul>
+
+                    <h4 class="sub-section-title font-semibold">Proposed Composition:</h4>
+                     <ul class="list-disc list-inside text-gray-600 space-y-2 text-sm sm:text-base pl-4">
+                        <li><strong>Chair:</strong> Designated AI Lead (to be appointed by AWPS leadership; this could be an existing leader assigned this portfolio, or a new dedicated role if deemed strategically necessary).</li>
+                        <li><strong>Members:</strong>
+                            <ul class="list-circle list-inside ml-4 mt-1 space-y-1">
+                                <li>Senior School Leadership representative(s) (e.g., Principal, Vice-Principal).</li>
+                                <li>Head of IT / IT Department representative.</li>
+                                <li>Curriculum Coordinator(s) / Department Head representatives (from various school sections/subjects, ensuring diverse representation).</li>
+                                <li>Teacher representatives (elected or nominated, representing different grade levels/divisions).</li>
+                                <li>(Optional, for later consideration or ad-hoc consultation) Student Council representative (for secondary school perspectives).</li>
+                                <li>(Optional, for later consideration or ad-hoc consultation) Parent representative (e.g., from a parent advisory council).</li>
+                            </ul>
+                        </li>
+                    </ul>
+                     <h4 class="sub-section-title font-semibold">Operational Details:</h4>
+                     <ul class="list-disc list-inside text-gray-600 space-y-2 text-sm sm:text-base pl-4">
+                        <li><strong>Frequency of Meetings:</strong> Initially monthly during the foundational and planning phases, transitioning to quarterly meetings or as needed once systems are established.</li>
+                        <li><strong>Reporting Structure:</strong> The Chair of the AI Steering Committee will provide regular progress reports to the Senior School Leadership. Minutes and key decisions will be documented and shared appropriately.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl sm:text-3xl font-semibold mb-6 phase-title"><i class="fas fa-file-contract mr-3 awps-accent-text"></i>Key Policy Development & Review Cycle</h3>
+                    <p class="text-gray-700 mb-4 text-sm sm:text-base">The Designated AI Lead/Team, under the guidance of the AI Steering Committee and in consultation with relevant departments (e.g., IT, Legal if applicable, Curriculum Heads), will lead the development, dissemination, and regular review of crucial AI-related policies. These policies will operationalize the AWPS Ethical AI Framework.</p>
+                    <h4 class="sub-section-title font-semibold">Core Policies to be Developed/Reviewed:</h4>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2 text-sm sm:text-base pl-4">
+                        <li><strong>AI Tool Evaluation, Vetting, and Approval Policy:</strong> Establishing clear criteria and a transparent process for selecting and approving AI tools for use within AWPS. This includes pedagogical suitability, data security and privacy compliance (especially for student data), ethical implications, and technical support.</li>
+                        <li><strong>Acceptable Use of AI Policy for Students:</strong> Defining clear expectations and guidelines for students regarding the appropriate and ethical use of AI tools for learning, research, assignments, and assessments. This will cover issues such as plagiarism, proper citation of AI assistance, critical evaluation of AI outputs, and responsible digital citizenship.</li>
+                        <li><strong>Acceptable Use of AI Policy for Staff:</strong> Providing guidelines for educators and administrative staff on leveraging AI tools for professional tasks, including lesson planning, content creation, assessment, and communication, while ensuring confidentiality, data integrity, and modeling ethical AI practices.</li>
+                        <li><strong>AI and Data Privacy/Security Policy:</strong> Detailing specific protocols for the collection, storage, use, and protection of student and staff data when interacting with AI systems, ensuring full compliance with UAE data protection laws (e.g., Federal Decree-Law No. 45 of 2021 on the Protection of Personal Data) and international best practices.</li>
+                        <li><strong>AI and Academic Integrity Policy:</strong> Clearly articulating how AI tools can be used as learning aids versus what constitutes academic misconduct. This policy will inform assessment design, teacher expectations, and student understanding of originality and authentic work.</li>
+                        <li><strong>Protocol for Addressing AI Bias and Ensuring Fairness:</strong> Outlining procedures for identifying, reporting, and mitigating potential biases in AI tools and their outputs to ensure equitable and fair learning experiences for all students.</li>
+                    </ul>
+                     <h4 class="sub-section-title font-semibold">Policy Review & Update Cycle:</h4>
+                    <p class="text-gray-700 mb-4 text-sm sm:text-base">Given the rapidly evolving nature of AI, all AI-related policies will be subject to a <strong class="font-semibold">regular review cycle (e.g., annually or biannually)</strong> by the AI Steering Committee. This ensures that AWPS policies remain current, effective, and aligned with the latest technological advancements, ethical considerations, and educational best practices.</p>
+                </div>
+                 <div id="customLinks-governanceTab" class="custom-links-container">
+                    </div>
+            </section>
+        </div>
+        
+        <div id="ethicalFrameworkTab" class="tab-content">
+            <section class="my-8 sm:my-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 text-gray-800">AWPS Ethical AI Framework & Policy Outline</h2>
+                <p class="text-center text-gray-600 mb-6 text-base sm:text-lg">Al Wahda Private School is committed to harnessing the transformative power of Artificial Intelligence to enrich education while upholding the highest ethical standards. This framework serves as our guiding compass, ensuring that AI is integrated responsibly, equitably, and in full alignment with our core values and the developmental needs of our K-12 students.</p>
+                <p class="text-center text-gray-600 mb-10 text-base sm:text-lg">Our approach is rooted in the belief that AI should augment human capabilities, foster critical thinking, and prepare students to be principled and innovative leaders in an increasingly AI-driven world.</p>
+
+                <h3 class="text-2xl sm:text-3xl font-semibold mb-6 section-title"><i class="fas fa-shield-heart mr-3 awps-accent-text"></i>Core Ethical Pillars for AI in Education at AWPS</h3>
+                
+                <div class="space-y-6">
+                    <div class="ethical-pillar">
+                        <h5 class="sub-section-title font-semibold flex items-center"><i class="fas fa-child fa-fw mr-3 text-blue-600"></i>Student-Centricity & Holistic Well-being</h5>
+                        <p class="text-gray-600 text-sm sm:text-base ml-8">AI integration will prioritize the educational benefit, holistic development, and well-being of every student. Tools and practices will be selected and implemented to support personalized learning journeys, foster curiosity, and enhance understanding, always considering age-appropriateness and developmental stages. The emotional and social aspects of learning will remain paramount.</p>
+                    </div>
+
+                    <div class="ethical-pillar">
+                        <h5 class="sub-section-title font-semibold flex items-center"><i class="fas fa-users-cog fa-fw mr-3 text-green-600"></i>Equity, Fairness, and Inclusivity</h5>
+                        <p class="text-gray-600 text-sm sm:text-base ml-8">AWPS is committed to ensuring that AI tools promote equity and inclusivity. We will actively work to provide fair access to AI resources for all students and staff, and diligently strive to identify, assess, and mitigate potential algorithmic biases in AI systems to prevent any perpetuation or amplification of societal inequalities.</p>
+                    </div>
+
+                    <div class="ethical-pillar">
+                        <h5 class="sub-section-title font-semibold flex items-center"><i class="fas fa-eye fa-fw mr-3 text-yellow-600"></i>Transparency & Understandability</h5>
+                        <p class="text-gray-600 text-sm sm:text-base ml-8">We will strive for transparency in how AI systems are selected, implemented, and used within the school environment. Students and educators will be provided with age-appropriate explanations of how AI tools work, their capabilities, and their limitations, fostering an understanding rather than blind acceptance of AI-generated content or decisions.</p>
+                    </div>
+
+                    <div class="ethical-pillar">
+                        <h5 class="sub-section-title font-semibold flex items-center"><i class="fas fa-user-check fa-fw mr-3 text-purple-600"></i>Human Agency & Accountability</h5>
+                        <p class="text-gray-600 text-sm sm:text-base ml-8">While AI can provide powerful support, human educators remain central to the learning process. Critical human judgment, pedagogical expertise, and meaningful teacher-student interaction will always be maintained. AWPS will establish clear lines of accountability for the outcomes of AI use in educational settings.</p>
+                    </div>
+
+                    <div class="ethical-pillar">
+                        <h5 class="sub-section-title font-semibold flex items-center"><i class="fas fa-user-secret fa-fw mr-3 text-red-600"></i>Privacy & Data Stewardship</h5>
+                        <p class="text-gray-600 text-sm sm:text-base ml-8">The privacy and security of student and staff data are paramount. AWPS will adhere to all UAE data protection laws and implement rigorous protocols for the ethical collection, use, storage, and disposal of data associated with AI systems. We will select tools that demonstrate a strong commitment to data minimization and security.</p>
+                    </div>
+
+                    <div class="ethical-pillar">
+                        <h5 class="sub-section-title font-semibold flex items-center"><i class="fas fa-graduation-cap fa-fw mr-3 text-teal-600"></i>Academic Integrity & Authentic Learning</h5>
+                        <p class="text-gray-600 text-sm sm:text-base ml-8">AI tools should be used to support and enhance authentic learning, critical thinking, and creativity, not to circumvent genuine student effort. AWPS will develop clear guidelines on the ethical use of AI for assignments and assessments, promoting academic honesty and helping students understand the value of their own intellectual contributions.</p>
+                    </div>
+                    
+                    <div class="ethical-pillar">
+                        <h5 class="sub-section-title font-semibold flex items-center"><i class="fas fa-lightbulb fa-fw mr-3 text-pink-600"></i>Responsible Innovation & Societal Awareness</h5>
+                        <p class="text-gray-600 text-sm sm:text-base ml-8">AWPS will encourage the responsible exploration and innovative use of AI in ways that align with our educational mission. We will also foster an awareness among students and staff of the broader societal impacts of AI, encouraging critical reflection on its role in the world and the development of skills to navigate an AI-suffused future ethically.</p>
+                    </div>
+                </div>
+
+                <div class="mt-10">
+                    <h3 class="text-2xl sm:text-3xl font-semibold mb-6 section-title"><i class="fas fa-hands-helping mr-3 awps-accent-text"></i>Our Commitment to Action (Operationalizing the Framework)</h3>
+                    <p class="text-gray-700 mb-4 text-sm sm:text-base">Al Wahda Private School commits to embedding these ethical pillars into our AI strategy through:</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2 text-sm sm:text-base pl-4">
+                        <li>The development and enforcement of clear, comprehensive <strong class="font-semibold">AI policies and guidelines</strong> (as detailed below and in the AI Governance tab).</li>
+                        <li>Ongoing, high-quality <strong class="font-semibold">professional development</strong> for all educators on AI literacy, pedagogical applications, and ethical considerations (as outlined in the Teacher PD Plan tab).</li>
+                        <li>Age-appropriate <strong class="font-semibold">AI literacy and ethics education</strong> for all students, integrated into the curriculum.</li>
+                        <li>A continuous cycle of <strong class="font-semibold">monitoring, evaluation, and review</strong> of our AI tools, practices, and policies to ensure they remain aligned with these principles and adapt to the evolving technological landscape.</li>
+                        <li>Transparent <strong class="font-semibold">communication and engagement</strong> with all stakeholders (students, parents, teachers, staff) regarding our AI initiatives and ethical commitments (as detailed in the Communication Plan tab).</li>
+                    </ul>
+                </div>
+
+                <div class="mt-12"> 
+                    <h3 class="text-2xl sm:text-3xl font-semibold mb-6 section-title"><i class="fas fa-gavel mr-3 awps-accent-text"></i>AWPS AI Ethics Policy Outline</h3>
+                    <p class="text-gray-700 mb-6 text-base sm:text-lg">This section outlines the foundational elements of the Al Wahda Private School (AWPS) AI Ethics Policy, which operationalizes our Core Ethical AI Pillars. This policy will be a living document, subject to regular review and updates by the AWPS AI Steering Committee.</p>
+                
+                    <div class="mb-10">
+                        <h4 class="sub-section-title font-semibold"><i class="fas fa-landmark mr-2"></i>I. Preamble & Purpose (Policy)</h4>
+                        <p class="text-gray-700 mb-2 text-sm sm:text-base">AWPS recognizes the transformative potential of AI to enhance learning, teaching, and school operations. This policy aims to:</p>
+                        <ul class="list-disc list-inside text-gray-600 space-y-2 text-sm sm:text-base pl-4">
+                            <li>Establish clear expectations for the ethical use of AI by all stakeholders.</li>
+                            <li>Promote AI literacy and critical thinking about AI technologies.</li>
+                            <li>Safeguard student and staff data privacy and security.</li>
+                            <li>Ensure fairness, equity, and inclusivity in the application of AI.</li>
+                            <li>Uphold academic integrity and the value of authentic human effort.</li>
+                            <li>Foster a culture of responsible innovation.</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-10">
+                        <h4 class="sub-section-title font-semibold"><i class="fas fa-chalkboard-teacher mr-2"></i>II. AI Ethics for AWPS Teachers & Staff (Policy)</h4>
+                        <p class="text-gray-700 mb-4 text-sm sm:text-base">AWPS educators and staff are expected to model and uphold the highest ethical standards when using AI tools. This includes:</p>
+                        <div class="space-y-3 text-gray-600 text-sm sm:text-base">
+                            <p class="policy-point"><strong>Professional Responsibility & Judgment:</strong> Utilize AI to augment, not replace, professional expertise, pedagogical skills, and critical judgment in curriculum delivery, student assessment, and interaction. Maintain responsibility for the educational content and environment.</p>
+                            <p class="policy-point"><strong>Pedagogically Sound Application:</strong> Select and implement AI tools that are age-appropriate, align with curriculum goals, support diverse learning needs, and demonstrably enhance teaching and learning, based on evidence and best practices.</p>
+                            <p class="policy-point"><strong>Student Data Privacy & Confidentiality:</strong> Strictly adhere to AWPS data protection policies and UAE laws when using AI tools that process student data. Ensure student PII (Personally Identifiable Information) is handled securely and with consent where required. Be transparent with students and parents about data use.</p>
+                            <p class="policy-point"><strong>Transparency in Use:</strong> Be transparent with students about when and how AI is being used in the learning process, including AI-generated content or AI-assisted grading (where applicable and appropriate, with human oversight).</p>
+                            <p class="policy-point"><strong>Bias Awareness & Mitigation:</strong> Critically evaluate AI tools and their outputs for potential biases (e.g., cultural, gender, linguistic). Actively work to mitigate these biases and ensure equitable learning experiences for all students.</p>
+                            <p class="policy-point"><strong>Maintaining Academic Integrity:</strong> Design learning tasks and assessments that promote authentic student work and clearly define the boundaries of acceptable AI assistance. Implement strategies to detect and address AI-facilitated academic misconduct.</p>
+                            <p class="policy-point"><strong>Continuous Professional Learning:</strong> Commit to ongoing professional development to stay informed about advancements in AI, its educational applications, and evolving ethical considerations.</p>
+                            <p class="policy-point"><strong>Modeling Ethical AI Use:</strong> Demonstrate responsible and ethical AI practices as a role model for students, including proper attribution if AI-generated content is used in instructional materials (where appropriate).</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-10">
+                        <h4 class="sub-section-title font-semibold"><i class="fas fa-user-graduate mr-2"></i>III. AI Ethics for AWPS Students (Policy)</h4>
+                        <p class="text-gray-700 mb-4 text-sm sm:text-base">AWPS students are expected to use AI tools responsibly, ethically, and in a manner that supports their learning and the integrity of the academic environment. This includes:</p>
+                         <div class="space-y-3 text-gray-600 text-sm sm:text-base">
+                            <p class="policy-point"><strong>Academic Honesty & Original Work:</strong> Understand that submitting AI-generated work as their own, without proper authorization and acknowledgment, constitutes plagiarism. AI tools should be used to support learning, research, and idea generation, not to replace individual effort and critical thinking.</p>
+                            <p class="policy-point"><strong>Appropriate Attribution:</strong> When permitted by the teacher for specific tasks, learn to accurately cite or acknowledge the use of AI tools in their work, according to guidelines provided.</p>
+                            <p class="policy-point"><strong>Critical Evaluation of AI Outputs:</strong> Recognize that AI-generated information may not always be accurate, complete, or unbiased. Develop skills to critically assess AI outputs, verify information from reliable sources, and identify potential "hallucinations" or misinformation.</p>
+                            <p class="policy-point"><strong>Protecting Personal Information:</strong> Avoid sharing personal or sensitive information (their own or others') with AI tools unless explicitly guided by a teacher for a specific, school-approved purpose and with understanding of data use.</p>
+                            <p class="policy-point"><strong>Respectful and Responsible Digital Citizenship:</strong> Use AI tools in a manner that is respectful of others, avoids creating or spreading harmful, false, or biased content, and adheres to all AWPS digital citizenship and acceptable use policies.</p>
+                            <p class="policy-point"><strong>Seeking Clarification:</strong> Ask teachers for guidance if unsure about the acceptable use of AI for any assignment or school-related activity.</p>
+                            <p class="policy-point"><strong>Understanding AI as a Tool:</strong> Recognize AI as a powerful tool that can assist learning but does not replace the need for personal understanding, effort, and skill development. Focus on learning the underlying concepts and skills, not just generating answers.</p>
+                            <p class="policy-point"><strong>Adherence to Specific Task Guidelines:</strong> Follow teacher instructions regarding if, when, and how AI tools may be used for particular assignments or assessments. Usage permissions may vary by task.</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-10">
+                        <h4 class="sub-section-title font-semibold"><i class="fas fa-exclamation-triangle mr-2"></i>IV. Reporting Ethical Concerns (Policy)</h4>
+                        <p class="text-gray-700 mb-4 text-sm sm:text-base">Any member of the AWPS community who has a concern about the ethical use of AI, potential policy violations, or the impact of an AI tool is encouraged to report it to their teacher, the Designated AI Lead/Team, or a school administrator through established school reporting channels. All reports will be treated with appropriate confidentiality and investigated thoroughly.</p>
+                    </div>
+
+                    <div>
+                        <h4 class="sub-section-title font-semibold"><i class="fas fa-history mr-2"></i>V. Policy Review and Updates (Policy)</h4>
+                        <p class="text-gray-700 mb-4 text-sm sm:text-base">This AI Ethics Policy is a dynamic document. It will be reviewed regularly (e.g., annually) by the AWPS AI Steering Committee and updated as necessary to reflect advancements in AI technology, evolving ethical best practices, educational needs, and guidance from the UAE Ministry of Education and relevant regulatory bodies.</p>
+                    </div>
+                </div>
+                 <div id="customLinks-ethicalFrameworkTab" class="custom-links-container"> </div>
+            </section>
+        </div>
+
+
+        <div id="communicationTab" class="tab-content">
+            <section class="my-8 sm:my-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 text-gray-800">Stakeholder Communication & Engagement Plan for AI Integration</h2>
+                <p class="text-center text-gray-600 mb-10 text-base sm:text-lg">Successful and ethical integration of Artificial Intelligence requires transparent communication and active engagement with all members of the Al Wahda Private School community. This plan outlines strategies to inform, involve, and gather feedback from key stakeholders, coordinated by the <strong class="awps-accent-text">Designated AI Lead/Team</strong>.</p>
+
+                <div class="mb-10">
+                    <h3 class="text-2xl sm:text-3xl font-semibold mb-6 phase-title"><i class="fas fa-users mr-3 awps-accent-text"></i>Identifying Key Stakeholders</h3>
+                    <p class="text-gray-700 mb-4 text-sm sm:text-base">Our communication efforts will target the following primary groups:</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2 text-sm sm:text-base pl-4">
+                        <li><strong>School Leadership & Board:</strong> For strategic alignment, resource allocation, and oversight.</li>
+                        <li><strong>Teachers & Academic Staff:</strong> As primary implementers and pedagogical experts.</li>
+                        <li><strong>Students:</strong> As the ultimate beneficiaries and active users of AI tools.</li>
+                        <li><strong>Parents & Guardians:</strong> To build trust, address concerns, and foster partnership in learning.</li>
+                        <li><strong>Administrative & Support Staff:</strong> Who may use AI for operational efficiency or support AI initiatives.</li>
+                        <li><strong>IT Department:</strong> For technical support, infrastructure, and security.</li>
+                    </ul>
+                </div>
+
+                <div class="mb-10">
+                    <h3 class="text-2xl sm:text-3xl font-semibold mb-6 phase-title"><i class="fas fa-comments mr-3 awps-accent-text"></i>Key Messages & Communication Channels</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full bg-white border border-gray-300 text-sm sm:text-base">
+                            <thead class="awps-accent-bg text-white">
+                                <tr>
+                                    <th class="text-left py-3 px-4 font-semibold">Stakeholder Group</th>
+                                    <th class="text-left py-3 px-4 font-semibold">Key Messages</th>
+                                    <th class="text-left py-3 px-4 font-semibold">Communication Channels</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-700">
+                                <tr class="border-b">
+                                    <td class="py-3 px-4"><strong>School Leadership & Board</strong></td>
+                                    <td class="py-3 px-4">Strategic alignment with AWPS mission & UAE vision, potential ROI (educational & operational), risk management, progress updates on AI plan, resource needs.</td>
+                                    <td class="py-3 px-4">Formal presentations, regular reports, strategic planning meetings, dedicated briefings.</td>
+                                </tr>
+                                <tr class="border-b bg-gray-50">
+                                    <td class="py-3 px-4"><strong>Teachers & Academic Staff</strong></td>
+                                    <td class="py-3 px-4">Benefits for teaching (efficiency, differentiation), student engagement, professional growth opportunities, ethical guidelines, support systems, how AI complements their expertise.</td>
+                                    <td class="py-3 px-4">Staff meetings, Professional Development sessions, internal newsletters/emails, dedicated AI portal/resource hub, departmental meetings, surveys, focus groups.</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="py-3 px-4"><strong>Students</strong></td>
+                                    <td class="py-3 px-4">How AI can make learning more engaging and personalized, developing future-ready skills, ethical use guidelines (digital citizenship), opportunities for innovation, where to get help.</td>
+                                    <td class="py-3 px-4">Age-appropriate assemblies, classroom discussions led by teachers, student portal announcements, workshops, student AI clubs/competitions, surveys.</td>
+                                </tr>
+                                <tr class="border-b bg-gray-50">
+                                    <td class="py-3 px-4"><strong>Parents & Guardians</strong></td>
+                                    <td class="py-3 px-4">AWPS's commitment to responsible innovation, benefits for student learning and future-readiness, ethical safeguards (data privacy, safety), how AI supports (not replaces) teachers, resources for home support. <strong class="block mt-1 awps-accent-text">Termly AI Integration Update Article.</strong></td>
+                                    <td class="py-3 px-4">Parent information evenings/webinars, school newsletters (with termly AI article), dedicated section on school website/portal, parent-teacher conferences, FAQ documents.</td>
+                                </tr>
+                                 <tr class="border-b">
+                                    <td class="py-3 px-4"><strong>Administrative & Support Staff</strong></td>
+                                    <td class="py-3 px-4">Potential for AI to streamline tasks, improve efficiency, training on relevant AI tools for their roles, data security protocols.</td>
+                                    <td class="py-3 px-4">Targeted training sessions, internal memos, staff meetings.</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="py-3 px-4"><strong>IT Department</strong></td>
+                                    <td class="py-3 px-4">Technical requirements, security protocols, integration plans, support needs, collaboration on tool vetting and deployment.</td>
+                                    <td class="py-3 px-4">Regular planning and coordination meetings, technical briefings, shared documentation.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mb-10">
+                    <h3 class="text-2xl sm:text-3xl font-semibold mb-6 phase-title"><i class="fas fa-calendar-alt mr-3 awps-accent-text"></i>Phased Communication Timeline (Illustrative - First Year)</h3>
+                     <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base pl-4">
+                        <li><strong>Phase 1 (Foundation & Discovery - Months 1-3):</strong>
+                            <ul class="list-circle list-inside ml-4 mt-1 space-y-1">
+                                <li>Internal announcement to staff about the AI integration initiative and the leadership structure for the plan.</li>
+                                <li>Initial meetings with leadership, department heads, and IT by the Designated AI Lead/Team.</li>
+                                <li>Launch of teacher and student surveys (communicating purpose and anonymity).</li>
+                            </ul>
+                        </li>
+                        <li><strong>Phase 2 (Strategic Planning & Capacity Building - Months 4-6):</strong>
+                            <ul class="list-circle list-inside ml-4 mt-1 space-y-1">
+                                <li>Share aggregated survey insights with staff and discuss implications for PD.</li>
+                                <li>Communicate the plan for foundational PD on AI literacy and ethics.</li>
+                                <li>Begin engaging parents with an introductory overview of AWPS's approach to AI in education (e.g., newsletter article, initial information session).</li>
+                                <li>Draft AI governance framework and policy proposals shared with the AI Steering Committee.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Phase 3 (Pilot Implementation - Months 7-9):</strong>
+                            <ul class="list-circle list-inside ml-4 mt-1 space-y-1">
+                                <li>Clear communication with pilot teachers and students (and their parents) about specific tools and expectations.</li>
+                                <li>Regular updates and feedback sessions within pilot groups.</li>
+                                <li>Broader communication to the school community about the ongoing pilot (without over-promising specific outcomes yet). First termly AI update article published.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Phase 4 (Analysis, Refinement & Scaling - Months 10-12):</strong>
+                            <ul class="list-circle list-inside ml-4 mt-1 space-y-1">
+                                <li>Share key findings and lessons learned from pilot programs with leadership and staff.</li>
+                                <li>Communicate refined AI strategies and plans for wider rollout to all stakeholders.</li>
+                                <li>Showcase early successes and student work to build enthusiasm and demonstrate value. Second termly AI update article published.</li>
+                                <li>Gather feedback on the communication plan itself for ongoing improvement.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                 <div>
+                    <h3 class="text-2xl sm:text-3xl font-semibold mb-6 phase-title"><i class="fas fa-comments-dollar mr-3 awps-accent-text"></i>Feedback Mechanisms</h3>
+                    <p class="text-gray-700 mb-4 text-sm sm:text-base">To ensure ongoing dialogue and responsiveness, the following feedback channels will be established:</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2 text-sm sm:text-base pl-4">
+                        <li>Dedicated email address for AI-related queries and feedback (e.g., <a href="mailto:ai.integration@alwahdaschool.ae" class="text-blue-600 hover:underline">ai.integration@alwahdaschool.ae</a>, managed by the Designated AI Lead/Team).</li>
+                        <li>Regular pulse surveys for teachers and students involved in AI initiatives.</li>
+                        <li>Suggestion boxes (physical or digital) for anonymous feedback.</li>
+                        <li>Open forums or Q&A sessions with the Designated AI Lead/Team at key junctures.</li>
+                        <li>Incorporating AI-related discussion points into existing parent-teacher meetings or advisory council meetings.</li>
+                    </ul>
+                    <p class="mt-4 text-gray-700 text-sm sm:text-base">This proactive and inclusive communication strategy will be vital for fostering understanding, managing expectations, addressing concerns, and building a collaborative culture around AI adoption at AWPS.</p>
+                </div>
+                 <div id="customLinks-communicationTab" class="custom-links-container">
+                    </div>
+            </section>
+        </div>
+
+        <div id="pblTab" class="tab-content">
+            <section class="my-8 sm:my-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 text-gray-800">Grade 3 AI-Integrated Transdisciplinary PBL Example</h2>
+                <p class="text-center text-gray-600 mb-10 text-base sm:text-lg">This sample Project-Based Learning (PBL) unit demonstrates how Artificial Intelligence can be woven into a Grade 3 curriculum, drawing inspiration from McGraw Hill's "Wonders" (English), "Reveal Math," and "Inspire Science." The focus is on authentic learning experiences and assessments.</p>
+
+                <div class="pbl-card">
+                    <h3 class="text-2xl sm:text-3xl font-semibold mb-4 phase-title"><i class="fas fa-seedling mr-3 awps-accent-text"></i>PBL Unit: Our Amazing Local Ecosystem Engineers!</h3>
+                    <p class="text-gray-700 mb-2 text-sm sm:text-base"><strong>Driving Question:</strong> How can we, as young scientists and storytellers, use technology to investigate and share the amazing ways local plants and animals survive and help our Sharjah environment?</p>
+                    <p class="text-gray-700 mb-4 text-sm sm:text-base"><strong>Project Goal:</strong> Students will research a local plant or animal, understand its adaptations and role in the ecosystem, and create a multimedia presentation (e.g., an interactive digital story, a short "documentary," or a virtual museum exhibit) to educate others, using AI tools to support their research, creation, and presentation.</p>
+                </div>
+
+                <h4 class="sub-section-title font-semibold"><i class="fas fa-puzzle-piece mr-2"></i>Subject Integration & AI Connections:</h4>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="pbl-card">
+                        <h5 class="text-xl mb-2"><i class="fas fa-book-open mr-2"></i>English (Inspired by "Wonders")</h5>
+                        <p class="text-gray-600 mb-2 text-sm sm:text-base"><strong>Focus:</strong> Informational text comprehension, research skills, narrative writing, presentation skills.</p>
+                        <p class="text-gray-600 font-semibold text-sm sm:text-base">AI Integration:</p>
+                        <ul class="list-disc list-inside text-gray-600 space-y-1 text-xs sm:text-sm pl-4">
+                            <li><strong>Research Assistance:</strong> Students use kid-safe search engines and AI-powered tools (e.g., a supervised instance of Gemini or NotebookLM with curated sources) to gather facts about their chosen organism. Teacher guides prompt engineering for age-appropriate queries (e.g., "Tell me three ways a [local bird] finds food in Sharjah").</li>
+                            <li><strong>Vocabulary Building:</strong> AI tools to generate lists of interesting vocabulary related to their organism and its habitat, with kid-friendly definitions and example sentences.</li>
+                            <li><strong>Story/Script Generation (as a scaffold):</strong> Students can use AI (e.g., Gemini with specific prompts like "Write a short story about a Ghaf tree from its point of view") as a starting point for their narratives, which they then edit, expand, and personalize. Emphasis on AI as a "helper," not the final author.</li>
+                            <li><strong>Presentation Support:</strong> AI tools (e.g., Canva AI) to help design visually appealing slides or elements for their multimedia presentation, suggesting layouts or generating simple icons based on their content.</li>
+                        </ul>
+                    </div>
+
+                    <div class="pbl-card">
+                        <h5 class="text-xl mb-2"><i class="fas fa-calculator mr-2"></i>Mathematics (Inspired by "Reveal Math")</h5>
+                        <p class="text-gray-600 mb-2 text-sm sm:text-base"><strong>Focus:</strong> Data collection, measurement, graphing, interpreting data, basic geometry (shapes of habitats/organisms).</p>
+                        <p class="text-gray-600 font-semibold text-sm sm:text-base">AI Integration:</p>
+                        <ul class="list-disc list-inside text-gray-600 space-y-1 text-xs sm:text-sm pl-4">
+                            <li><strong>Data Analysis (Simple):</strong> If students collect simple data (e.g., number of different insects seen in a school garden over a week, or average height of a type of plant), AI tools could (with significant teacher guidance) help create simple charts or graphs from inputted data. Teacher emphasizes understanding what the graph means.</li>
+                            <li><strong>Measurement Exploration:</strong> Using AI to find real-world examples of animal sizes or plant heights, comparing them using mathematical language (taller, shorter, longer).</li>
+                            <li><strong>Problem Generation:</strong> Teachers use AI (e.g., Gemini) to generate differentiated word problems related to the ecosystem theme (e.g., "If a gazelle eats 2 kg of grass a day, how much does it eat in 3 days?").</li>
+                        </ul>
+                    </div>
+
+                    <div class="pbl-card">
+                        <h5 class="text-xl mb-2"><i class="fas fa-flask mr-2"></i>Science (Inspired by "Inspire Science")</h5>
+                        <p class="text-gray-600 mb-2 text-sm sm:text-base"><strong>Focus:</strong> Ecosystems, habitats, animal/plant adaptations, life cycles, food chains, human impact on environments.</p>
+                        <p class="text-gray-600 font-semibold text-sm sm:text-base">AI Integration:</p>
+                        <ul class="list-disc list-inside text-gray-600 space-y-1 text-xs sm:text-sm pl-4">
+                            <li><strong>Virtual Field Trips/Simulations:</strong> AI-powered tools or platforms that offer simulations of different ecosystems or allow "virtual dissections" (age-appropriate) or explorations of plant structures.</li>
+                            <li><strong>Information Synthesis with NotebookLM:</strong> Teacher uploads curated articles/texts about local ecosystems or specific adaptations into NotebookLM. Students ask questions to the sources to deepen understanding (e.g., "How does a camel's hump help it survive in the desert?"). NotebookLM can generate summaries or FAQs based *only* on these trusted sources.</li>
+                            <li><strong>Concept Explanation:</strong> Using AI (e.g., supervised Gemini) to get simplified explanations of complex scientific concepts (e.g., "Explain photosynthesis like I'm 8 years old"). Teacher verifies accuracy.</li>
+                            <li><strong>"What if" Scenarios:</strong> Students can (with teacher guidance) ask AI about potential impacts of environmental changes on their chosen organism (e.g., "What might happen to desert foxes if there is less rainfall?"). This fosters critical thinking about cause and effect.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h4 class="sub-section-title font-semibold"><i class="fas fa-tasks mr-2"></i>Project Phases & Activities (Illustrative):</h4>
+                <ol class="list-decimal list-inside text-gray-700 space-y-3 text-sm sm:text-base pl-4">
+                    <li><strong>Launch & Inquiry (Week 1-2):</strong> Introduce the driving question. Brainstorm local plants/animals. Students choose an organism. Initial research using books, curated websites, and AI-assisted search (teacher-led prompting). Begin a "Wonder Wall" for questions.</li>
+                    <li><strong>Deep Dive Research (Week 3-4):</strong> Focused research on chosen organism (habitat, diet, adaptations, role in ecosystem, life cycle). English: Note-taking, summarizing. Science: Understanding scientific concepts. Math: Collecting relevant data if applicable. AI: Using NotebookLM with teacher-provided sources, AI for vocabulary.</li>
+                    <li><strong>Creation & Collaboration (Week 5-7):</strong> Students plan their multimedia presentation. English: Storyboarding, scriptwriting (with AI as a brainstorming partner if needed). Math: Creating graphs/charts (manually or AI-assisted). Science: Ensuring scientific accuracy. AI: Using tools for visual design, generating simple audio narration (e.g., for a character in their story, using a text-to-speech tool).</li>
+                    <li><strong>Refinement & Rehearsal (Week 8):</strong> Students finalize their projects, practice presentations, and receive peer and teacher feedback. AI: Potentially using an AI tool for grammar/spelling check on written components.</li>
+                    <li><strong>Showcase & Celebration (Week 9):</strong> Students present their projects to peers, other classes, or parents. This is a key part of the authentic assessment.</li>
+                </ol>
+
+                <h4 class="sub-section-title font-semibold"><i class="fas fa-check-double mr-2"></i>Authentic Assessment Strategies:</h4>
+                <p class="text-gray-700 mb-4 text-sm sm:text-base">Assessment is ongoing and focuses on both process and product, ensuring students can articulate their learning, thereby addressing concerns about AI over-reliance.</p>
+                <ul class="list-disc list-inside text-gray-600 space-y-2 text-sm sm:text-base pl-4">
+                    <li><strong>Multimedia Presentation (Product):</strong> The final digital story, documentary, or virtual exhibit. Assessed via a rubric focusing on:
+                        <ul class="list-circle list-inside ml-4 mt-1 space-y-1">
+                            <li>Accuracy of scientific information (Science).</li>
+                            <li>Clarity of narrative/explanation (English).</li>
+                            <li>Effective use of data/measurements if applicable (Math).</li>
+                            <li>Creativity and engagement.</li>
+                            <li>Appropriate and acknowledged use of AI tools (Digital Citizenship).</li>
+                        </ul>
+                    </li>
+                    <li><strong>Oral Defense/Presentation Q&A (Process & Product):</strong> Students answer questions about their research process, their organism, and their project choices during their presentation. This allows teachers to gauge individual understanding and critical thinking.</li>
+                    <li><strong>Research Journal/Portfolio (Process):</strong> Students maintain a journal with notes, research findings, drafts, reflections on their learning process, and how they used AI tools (including prompts used and how they refined AI outputs).</li>
+                    <li><strong>Teacher-Student Interviews/Conferences (Process):</strong> Regular check-ins throughout the project to discuss progress, challenges, understanding of concepts, and ethical AI use. This forms a significant part of the assessment, allowing teachers to probe for genuine understanding.</li>
+                    <li><strong>Peer Feedback Sessions (Process):</strong> Structured opportunities for students to give and receive constructive feedback on their projects.</li>
+                    <li><strong>Self-Reflection (Process):</strong> Students reflect on what they learned, the skills they developed (including AI literacy), and their contribution to the project.</li>
+                </ul>
+                <p class="mt-4 text-gray-700 text-sm sm:text-base"><strong>Note on AI Use in Assessment:</strong> The emphasis is on AI as a tool to support learning and creation, not to produce the final work itself. The authentic assessment components (oral defense, interviews, process journals) are crucial for verifying student learning and understanding, making it difficult for students to rely solely on AI-generated content without genuine comprehension.</p>
+                 <div id="customLinks-pblTab" class="custom-links-container">
+                    </div>
+            </section>
+        </div>
+
+        <div id="impactTab" class="tab-content">
+            <section class="my-8 sm:my-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 text-gray-800">Measuring Impact & Continuous Improvement</h2>
+                <p class="text-center text-gray-600 mb-10 text-base sm:text-lg">A commitment to data-driven decision-making and long-term success is central to AWPS's AI integration strategy. This section outlines how we will measure the impact of AI initiatives and ensure a cycle of continuous improvement, guided by the <strong class="awps-accent-text">Designated AI Lead/Team</strong> and the AI Steering Committee.</p>
+
+                <h3 class="text-2xl sm:text-3xl font-semibold mb-6 section-title"><i class="fas fa-bullseye mr-3 awps-accent-text"></i>Key Performance Indicators (KPIs) - Beyond Year 1</h3>
+                <p class="text-gray-700 mb-4 text-sm sm:text-base">While the First-Year Plan has initial KPIs, our long-term vision includes measuring:</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="pbl-card">
+                        <h5 class="text-xl mb-2"><i class="fas fa-user-graduate mr-2"></i>Student Outcomes</h5>
+                        <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm sm:text-base pl-4">
+                            <li>Demonstrable improvement in student engagement in AI-integrated lessons/projects.</li>
+                            <li>Enhanced student proficiency in AI literacy skills (critical evaluation, ethical use, basic understanding of AI concepts) as per age-appropriate benchmarks.</li>
+                            <li>Improvements in specific learning outcomes in subjects where AI tools are strategically deployed (e.g., reading comprehension, problem-solving in math, research skills).</li>
+                            <li>Quality and innovation in student projects utilizing AI tools.</li>
+                            <li>Increased student interest and participation in STEM/AI-related extracurricular activities or further studies.</li>
+                        </ul>
+                    </div>
+                    <div class="pbl-card">
+                        <h5 class="text-xl mb-2"><i class="fas fa-chalkboard-teacher mr-2"></i>Teacher & Staff Impact</h5>
+                        <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm sm:text-base pl-4">
+                            <li>Sustained and broadened adoption rates of approved AI tools across different departments and grade levels.</li>
+                            <li>Teacher-reported increases in efficiency for tasks like lesson planning, differentiation, and material creation.</li>
+                            <li>High levels of teacher confidence and competence in using AI tools effectively and ethically.</li>
+                            <li>Positive qualitative feedback on the quality and relevance of ongoing professional development.</li>
+                            <li>Growth of the "AI Innovators" Community of Practice and peer-led support.</li>
+                        </ul>
+                    </div>
+                    <div class="pbl-card md:col-span-2">
+                        <h5 class="text-xl mb-2"><i class="fas fa-school mr-2"></i>School-Level Impact</h5>
+                        <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm sm:text-base pl-4">
+                            <li>Successful integration of AI literacy and ethics into the AWPS curriculum, aligning with UAE MoE mandates.</li>
+                            <li>Development and implementation of robust AI governance and ethical policies.</li>
+                            <li>Recognition of AWPS as a leader in innovative and responsible AI integration in education.</li>
+                            <li>Positive feedback from parents and the wider community on AWPS's forward-thinking approach to technology in education.</li>
+                            <li>Evidence of a culture of responsible innovation among staff and students.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3 class="text-2xl sm:text-3xl font-semibold my-6 section-title"><i class="fas fa-database mr-3 awps-accent-text"></i>Data Collection & Analysis Framework</h3>
+                <p class="text-gray-700 mb-4 text-sm sm:text-base">A mixed-methods approach will be employed for ongoing data collection:</p>
+                <ul class="list-disc list-inside text-gray-600 space-y-2 text-sm sm:text-base pl-4">
+                    <li><strong>Quantitative Data:</strong> Surveys (students, teachers, parents), usage analytics from AI platforms (where available and ethical), assessment data, participation rates in PD and AI-related activities.</li>
+                    <li><strong>Qualitative Data:</strong> Focus groups, interviews with teachers and students, classroom observations (non-evaluative, focused on AI integration), analysis of student work/portfolios, teacher reflections, feedback from the AI Steering Committee.</li>
+                    <li><strong>Frequency:</strong> Data will be collected at regular intervals (e.g., termly, annually) depending on the KPI. The Designated AI Lead/Team will be responsible for overseeing data collection, ensuring ethical practices, and leading the analysis in collaboration with relevant stakeholders.</li>
+                    <li><strong>Reporting:</strong> Regular reports on KPIs and progress will be shared with the AI Steering Committee and school leadership to inform strategic decisions.</li>
+                </ul>
+
+                <h3 class="text-2xl sm:text-3xl font-semibold my-6 section-title"><i class="fas fa-sync-alt mr-3 awps-accent-text"></i>Iterative Improvement Cycle</h3>
+                <p class="text-gray-700 mb-4 text-sm sm:text-base">AWPS will adopt a continuous improvement model for its AI strategy:</p>
+                <ol class="list-decimal list-inside text-gray-600 space-y-2 text-sm sm:text-base pl-4">
+                    <li><strong>Plan:</strong> Define goals and strategies for AI integration (as outlined in this proposal and subsequent strategic plans).</li>
+                    <li><strong>Do:</strong> Implement AI initiatives, including PD, tool deployment, and curriculum integration.</li>
+                    <li><strong>Check:</strong> Collect and analyze data on KPIs, gather feedback from stakeholders, and monitor the effectiveness and ethical implications of AI use.</li>
+                    <li><strong>Act:</strong> Based on the analysis, refine strategies, update policies, adjust PD programs, select new tools, or scale successful initiatives. This cycle will be ongoing, ensuring the AI strategy remains responsive and effective.</li>
+                </ol>
+                <p class="text-gray-700 mt-4 text-sm sm:text-base">The AI Steering Committee will play a key role in overseeing this iterative improvement cycle, ensuring that AWPS's approach to AI in education evolves responsibly and effectively over time.</p>
+
+                <h3 class="text-2xl sm:text-3xl font-semibold my-6 section-title"><i class="fas fa-binoculars mr-3 awps-accent-text"></i>Benchmarking & Staying Current (Optional)</h3>
+                <p class="text-gray-700 mb-4 text-sm sm:text-base">To ensure AWPS remains at the cutting edge of educational AI, the Designated AI Lead/Team will:</p>
+                <ul class="list-disc list-inside text-gray-600 space-y-2 text-sm sm:text-base pl-4">
+                    <li>Stay informed about AI trends, research, and best practices in K-12 education globally.</li>
+                    <li>Network with other AI education leaders and institutions.</li>
+                    <li>Explore relevant frameworks and benchmarks for AI in schools (e.g., from ISTE, UNESCO, or regional educational bodies) to inform AWPS's progress and identify areas for growth.</li>
+                </ul>
+                 <div id="customLinks-impactTab" class="custom-links-container">
+                    </div>
+            </section>
+        </div>
+
+        <div id="budgetTab" class="tab-content">
+            <section class="my-8 sm:my-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 text-gray-800">Budget & Resource Plan Overview</h2>
+                <p class="text-center text-gray-600 mb-10 text-base sm:text-lg">A thoughtful approach to budgeting and resource allocation is essential for the successful and sustainable integration of Artificial Intelligence at Al Wahda Private School. This overview outlines key considerations.</p>
+
+                <h3 class="text-2xl sm:text-3xl font-semibold mb-6 section-title"><i class="fas fa-tablet-alt mr-3 awps-accent-text"></i>Student Access to Technology</h3>
+                <p class="text-gray-700 mb-4 text-sm sm:text-base">A foundational element for effective AI integration is ensuring equitable access to technology for all students. AWPS should continue and potentially expand efforts to provide students with access to appropriate devices (e.g., tablets) from an early age. This will be a key consideration in long-term budget planning for technology infrastructure.</p>
+
+                <h3 class="text-2xl sm:text-3xl font-semibold my-6 section-title"><i class="fas fa-hand-holding-usd mr-3 awps-accent-text"></i>AI Tools & Platforms</h3>
+                <p class="text-gray-700 mb-2 text-sm sm:text-base">Our strategy will prioritize the use of high-quality, ethically sound, and pedagogically relevant AI tools.</p>
+                <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm sm:text-base pl-4">
+                    <li><strong>Prioritizing Free Tools (Especially Year 1):</strong> During the initial phases, we will maximize the use of robust free AI tools and free tiers of freemium platforms. Many powerful educational AI tools offer significant functionality at no cost.
+                        <ul class="list-circle list-inside ml-4 mt-1 space-y-1">
+                            <li><strong>Google for Education:</strong> AWPS already leverages Google Workspace. Education Fundamentals is free and includes access to Gemini (with enterprise-grade data protection) and NotebookLM, which are powerful AI assistants for teachers and students.</li>
+                            <li><strong>MagicSchool AI:</strong> Offers a comprehensive "free forever" plan for educators with a wide array of tools for lesson planning, assessment, differentiation, etc.</li>
+                            <li>Other free tools will be vetted by the Designated AI Lead/Team based on the school's ethical framework and pedagogical needs.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Budgeting for Premium Features & Specialized Tools:</strong> We recognize that as our AI integration matures, or if specific needs arise that free tools cannot meet to AWPS standards, a budget for premium features or specialized paid AI tools may be necessary.
+                        <ul class="list-circle list-inside ml-4 mt-1 space-y-1">
+                            <li><strong>Google Workspace for Education Paid Editions:</strong> If advanced security, analytics, or other premium features are required, Education Standard (approx. 12-15 AED/student/year) or Education Plus (approx. 17-20 AED/student/year) could be considered. Specific quotes would be obtained.</li>
+                            <li><strong>MagicSchool AI Plus/Enterprise:</strong> For individual educators wanting unlimited access, MagicSchool Plus is approx. 367 AED/year. School/district enterprise licenses are quote-based and offer additional features like SSO and advanced analytics.</li>
+                            <li><strong>Other Specialized Tools:</strong> Costs can vary widely (e.g., some generative AI tools are ~$20-25/month/user, while comprehensive adaptive learning systems can be significantly more). Any such tool would undergo rigorous vetting and require specific budget approval.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3 class="text-2xl sm:text-3xl font-semibold my-6 section-title"><i class="fas fa-user-tie mr-3 awps-accent-text"></i>Resources for AI Leadership & Coordination</h3>
+                <p class="text-gray-700 mb-4 text-sm sm:text-base">A significant component of the AI integration budget will involve resourcing the leadership and coordination functions critical for the strategic planning, implementation, professional development, and overall success of the AI initiative. This may include:</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2 text-sm sm:text-base pl-4">
+                        <li>Allocation of time/stipend for existing leadership or staff members designated to lead AI integration efforts.</li>
+                        <li>If school leadership determines a new dedicated role (e.g., AI Integration Lead/Coordinator) is the most effective approach, a competitive salary and benefits package would be required.</li>
+                        <li>Budget for specialized training or certifications for the individual(s) leading the AI integration.</li>
+                    </ul>
+
+
+                <h3 class="text-2xl sm:text-3xl font-semibold my-6 section-title"><i class="fas fa-users-cog mr-3 awps-accent-text"></i>Professional Development & Training</h3>
+                <p class="text-gray-700 mb-4 text-sm sm:text-base">Ongoing, high-quality professional development is key. Budget considerations include:</p>
+                <ul class="list-disc list-inside text-gray-600 space-y-2 text-sm sm:text-base pl-4">
+                    <li>Development of in-house training materials and resources.</li>
+                    <li>Costs associated with external trainers or specialized workshops if needed (especially for advanced topics).</li>
+                    <li>Registration for relevant conferences and courses for the Designated AI Lead/Team and key teacher leaders.</li>
+                </ul>
+
+                <h3 class="text-2xl sm:text-3xl font-semibold my-6 section-title"><i class="fas fa-chart-line mr-3 awps-accent-text"></i>Future-Proofing & Sustainability</h3>
+                <p class="text-gray-700 mb-2 text-sm sm:text-base">The AI landscape is rapidly evolving, and the availability or pricing of "free" tools can change. To ensure long-term sustainability, AWPS will:</p>
+                <ul class="list-disc list-inside text-gray-600 space-y-2 text-sm sm:text-base pl-4">
+                    <li>Conduct an annual review of AI tool subscriptions and the overall AI budget as part of the school's regular budget cycle.</li>
+                    <li>Continuously explore new and emerging AI tools, prioritizing those with strong educational value and transparent pricing models, led by the Designated AI Lead/Team.</li>
+                    <li>Proactively seek grant opportunities or educational partnerships that can support AI initiatives and offset costs.</li>
+                    <li>Build internal capacity through ongoing PD and the "AI Innovators" community to reduce long-term reliance on external paid services where feasible.</li>
+                </ul>
+                <p class="text-gray-700 mt-4 text-sm sm:text-base">A detailed, itemized budget for Year 1 will be developed by the Designated AI Lead/Team during Phases 1 & 2 of the action plan, in collaboration with school leadership and relevant departments, for formal approval.</p>
+                 <div id="customLinks-budgetTab" class="custom-links-container">
+                    </div>
+            </section>
+        </div>
+
+
+    </main>
+
+    <div id="addLinkModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close-button" onclick="closeModal('addLinkModal')">&times;</span>
+                <h2>Add New Resource Link</h2>
+            </div>
+            <form id="addLinkForm" class="mt-4">
+                <div>
+                    <label for="linkName" class="form-label">Link Name:</label>
+                    <input type="text" id="linkName" name="linkName" class="form-input" required>
+                </div>
+                <div>
+                    <label for="linkUrl" class="form-label">Link URL (must start with http:// or https://):</label>
+                    <input type="url" id="linkUrl" name="linkUrl" class="form-input" placeholder="https://example.com" required pattern="https?://.+">
+                </div>
+                <div>
+                    <label for="linkTargetTab" class="form-label">Select Tab to Add Link To:</label>
+                    <select id="linkTargetTab" name="linkTargetTab" class="form-select" required>
+                        <option value="" disabled selected>Choose a tab...</option>
+                        <option value="proposalTab">AI Integration Proposal Tab</option>
+                        <option value="planTab">First-Year Plan Tab</option>
+                        <option value="pdPlanTab">Teacher PD Plan Tab</option>
+                        <option value="surveyTab">Sample Surveys Tab</option>
+                        <option value="governanceTab">AI Governance Tab</option>
+                        <option value="ethicalFrameworkTab">Ethical AI Framework & Policy Tab</option>
+                        <option value="communicationTab">Communication Plan Tab</option>
+                        <option value="pblTab">Grade 3 PBL Example Tab</option>
+                        <option value="impactTab">Measuring Impact Tab</option>
+                        <option value="budgetTab">Budget & Resources Tab</option>
+                        </select>
+                </div>
+                <div class="mt-6 flex justify-end space-x-3">
+                     <button type="button" onclick="closeModal('addLinkModal')" class="button-style bg-gray-300 hover:bg-gray-400 text-gray-800">Cancel</button>
+                    <button type="submit" class="button-style awps-accent-bg hover:bg-opacity-80 text-white">Save Link</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+        // Removed currentYear script as footer is removed.
+
+        function openTab(event, tabName) {
+            let i, tabcontent, tabbuttons;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove("active");
+            }
+            tabbuttons = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].classList.remove("active");
+            }
+            document.getElementById(tabName).style.display = "block";
+            document.getElementById(tabName).classList.add("active");
+            event.currentTarget.classList.add("active");
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            let alreadyActive = false;
+            const tabbuttons = document.getElementsByClassName("tab-button");
+            const tabcontents = document.getElementsByClassName("tab-content");
+
+            for (let i = 0; i < tabcontents.length; i++) {
+                if (!tabcontents[i].classList.contains('active')) {
+                    tabcontents[i].style.display = "none";
+                } else {
+                     tabcontents[i].style.display = "block"; 
+                }
+            }
+            
+            for (let i = 0; i < tabbuttons.length; i++) {
+                if (tabbuttons[i].classList.contains('active')) {
+                    alreadyActive = true;
+                    const activeTabName = tabbuttons[i].getAttribute('onclick').match(/'([^']+)'/)[1];
+                    if(document.getElementById(activeTabName)) {
+                       document.getElementById(activeTabName).style.display = "block"; 
+                       document.getElementById(activeTabName).classList.add("active");
+                    }
+                    break; 
+                }
+            }
+
+            if (!alreadyActive) {
+                if (document.getElementById('proposalTab') && document.querySelector('.tab-button[onclick*="proposalTab"]')) {
+                    document.getElementById('proposalTab').style.display = "block";
+                    document.getElementById('proposalTab').classList.add("active");
+                    document.querySelector('.tab-button[onclick*="proposalTab"]').classList.add("active");
+                }
+            }
+
+            const addLinkBtn = document.getElementById('addLinkBtn');
+            const addLinkModal = document.getElementById('addLinkModal');
+            const addLinkForm = document.getElementById('addLinkForm');
+
+            if (addLinkBtn) {
+                addLinkBtn.onclick = function() {
+                    addLinkModal.style.display = "block";
+                }
+            }
+
+            window.closeModal = function(modalId) {
+                const modal = document.getElementById(modalId);
+                if (modal) {
+                    modal.style.display = "none";
+                }
+            }
+
+            window.onclick = function(event) {
+                if (event.target == addLinkModal) {
+                    addLinkModal.style.display = "none";
+                }
+            }
+            
+            if (addLinkForm) {
+                addLinkForm.onsubmit = function(event) {
+                    event.preventDefault(); 
+                    const linkName = document.getElementById('linkName').value.trim();
+                    const linkUrl = document.getElementById('linkUrl').value.trim();
+                    const targetTabId = document.getElementById('linkTargetTab').value;
+
+                    if (!linkName || !linkUrl || !targetTabId) {
+                        // Using a custom modal for alerts
+                        showCustomAlert("Please fill in all fields.");
+                        return;
+                    }
+                    if (!linkUrl.match(/^https?:\/\/.+/)) {
+                         // Using a custom modal for alerts
+                        showCustomAlert("Please enter a valid URL starting with http:// or https://");
+                        return;
+                    }
+
+                    const linkContainerId = `customLinks-${targetTabId}`;
+                    let linkListContainer = document.getElementById(linkContainerId);
+                    
+                    if (!linkListContainer) {
+                        const targetTabElement = document.getElementById(targetTabId);
+                        if(targetTabElement){
+                            const newContainer = document.createElement('div');
+                            newContainer.id = linkContainerId;
+                            newContainer.className = 'custom-links-container';
+                            targetTabElement.appendChild(newContainer); 
+                            linkListContainer = newContainer;
+                        } else {
+                            console.error("Target tab element not found:", targetTabId);
+                            // Using a custom modal for alerts
+                            showCustomAlert("Error: Could not find the target tab to add the link.");
+                            return;
+                        }
+                    }
+                    
+                    let titleElement = linkListContainer.querySelector('h4');
+                    if (!titleElement) {
+                        titleElement = document.createElement('h4');
+                        titleElement.innerHTML = '<i class="fas fa-link mr-2"></i>Added Resources:';
+                        linkListContainer.insertBefore(titleElement, linkListContainer.firstChild); 
+                    }
+
+                    let ul = linkListContainer.querySelector('ul');
+                    if (!ul) {
+                        ul = document.createElement('ul');
+                        ul.className = 'list-disc pl-6 space-y-1';
+                        linkListContainer.appendChild(ul);
+                    }
+
+
+                    const listItem = document.createElement('li');
+                    const linkElement = document.createElement('a');
+                    linkElement.href = linkUrl;
+                    linkElement.textContent = linkName;
+                    linkElement.target = "_blank"; 
+                    linkElement.rel = "noopener noreferrer"; 
+
+                    listItem.appendChild(linkElement);
+                    ul.appendChild(listItem);
+
+                    addLinkForm.reset();
+                    closeModal('addLinkModal');
+                     // Using a custom modal for alerts
+                    showCustomAlert(`Link "${linkName}" added to the "${document.querySelector('#linkTargetTab option[value="' + targetTabId + '"]').textContent}" tab.`);
+                }
+            }
+            const tabContentDivs = document.querySelectorAll('.tab-content');
+            tabContentDivs.forEach(tabDiv => {
+                const containerId = `customLinks-${tabDiv.id}`;
+                if (!document.getElementById(containerId)) {
+                    const newContainer = document.createElement('div');
+                    newContainer.id = containerId;
+                    newContainer.className = 'custom-links-container';
+                    tabDiv.appendChild(newContainer);
+                }
+            });
+
+            // Function to show custom alert
+            function showCustomAlert(message) {
+                // Check if an alert modal already exists, if not create it
+                let alertModal = document.getElementById('customAlertModal');
+                if (!alertModal) {
+                    alertModal = document.createElement('div');
+                    alertModal.id = 'customAlertModal';
+                    alertModal.classList.add('modal'); // Reuse modal styles
+                    alertModal.style.display = 'none'; // Initially hidden
+
+                    const alertModalContent = document.createElement('div');
+                    alertModalContent.classList.add('modal-content');
+                    alertModalContent.style.maxWidth = '400px'; // Smaller width for alert
+
+                    const alertModalHeader = document.createElement('div');
+                    alertModalHeader.classList.add('modal-header');
+                    
+                    const alertTitle = document.createElement('h2');
+                    alertTitle.textContent = 'Notification';
+                    
+                    const closeAlertButton = document.createElement('span');
+                    closeAlertButton.classList.add('close-button');
+                    closeAlertButton.innerHTML = '&times;';
+                    closeAlertButton.onclick = function() {
+                        alertModal.style.display = 'none';
+                    };
+
+                    alertModalHeader.appendChild(alertTitle);
+                    alertModalHeader.appendChild(closeAlertButton);
+
+                    const alertMessageElement = document.createElement('p');
+                    alertMessageElement.id = 'customAlertMessage';
+                    alertMessageElement.style.padding = '1rem 0'; // Add some padding to message
+
+                    const alertOkButton = document.createElement('button');
+                    alertOkButton.textContent = 'OK';
+                    alertOkButton.classList.add('button-style', 'awps-accent-bg', 'text-white', 'hover:bg-opacity-80');
+                    alertOkButton.style.marginTop = '1rem';
+                    alertOkButton.onclick = function() {
+                        alertModal.style.display = 'none';
+                    };
+                    
+                    alertModalContent.appendChild(alertModalHeader);
+                    alertModalContent.appendChild(alertMessageElement);
+                    alertModalContent.appendChild(alertOkButton);
+                    alertModal.appendChild(alertModalContent);
+                    document.body.appendChild(alertModal);
+                }
+
+                // Set message and display
+                document.getElementById('customAlertMessage').textContent = message;
+                alertModal.style.display = 'block';
+            }
+        });
+    </script>
+
+</body>
+</html>
+
